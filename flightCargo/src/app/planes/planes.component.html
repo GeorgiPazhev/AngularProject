@@ -1,1 +1,3 @@
-<p>planes works!</p>
+@for (plane of planes; track $index) {
+    <app-aircraft [aircraft]="plane"></app-aircraft>
+}
