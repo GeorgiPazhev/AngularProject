@@ -11,6 +11,6 @@ export class AircraftService {
 
   getAllAircraft()
   {
-    return this.httpClient.get<Aircraft[]>("http://localhost:3000/api/aircraft");
+    return this.httpClient.get<Aircraft[]>("/api/aircraft");
   }
 }
