@@ -20,6 +20,10 @@ export class UserService {
    }
 
    
+   get isLogged(): boolean {
+    return !!this.user;
+  }
+
    login(username:string, password:string)
    {
     return this.client

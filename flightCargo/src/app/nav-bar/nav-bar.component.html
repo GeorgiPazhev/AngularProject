@@ -2,6 +2,11 @@
     <ul>
       <li><a routerLink="/"><span>Home</span></a></li>
       <li><a routerLink="/planes"><span>Our Aircraft</span></a></li> 
+      @if (isUserLoggedIn)
+      {
+        <li><a routerLink="/shipments"><span>Shipments</span></a></li>
+        <li><a routerLink="/flights"><span>Planned flights</span></a></li>
+      }
     </ul>
   </div>
 

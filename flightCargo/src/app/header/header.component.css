@@ -1,0 +1,23 @@
+div
+{
+    width: 100%;
+    background-color: gainsboro;
+    height: 20px;
+}
+
+form
+{
+    display:flexbox;
+    position: relative;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+img
+{
+    display:inline;
+    position: absolute;
+    margin-left: 0;
+    max-height: 20px;
+    max-width: 30px;
+}
