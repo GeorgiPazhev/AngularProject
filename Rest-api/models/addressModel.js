@@ -1,31 +1,26 @@
 const mongoose = require('mongoose');
 const { ObjectId } = mongoose.Schema.Types;
 
-const aircraftSchema = new mongoose.Schema(
+const addressSchema = new mongoose.Schema(
     {
-    pictureURL: {
+    country: {
         type: String,
         required:true
     },
-    mark:
+    province:
     {type: String,
      required:true
     },
-    model:
+    settlement:
     {
         type: String,
         required:true
     },
-    volume:
+    name:
     {
-        type: Number,
-        required:true
-    },
-    payload:
-    {
-        type: Number,
+        type: String,
         required:true
     }
      }, { _id: true });
 
-module.exports = mongoose.model('Aircraft', aircraftSchema);
+module.exports = mongoose.model('Address', addressSchema);
