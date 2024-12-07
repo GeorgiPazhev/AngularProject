@@ -7,6 +7,11 @@ const currencySchema = new mongoose.Schema(
     {
         type: String,
         required:true
+    },
+    abbreviature:
+    {
+        type: String,
+        required:true
     }
      }, { _id: true });
 
