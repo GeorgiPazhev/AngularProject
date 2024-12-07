@@ -10,3 +10,11 @@ export interface User{
     roles:Role[];
     addresses:Address[];
 }
+
+export interface UserForAuth {
+    username: string;
+    email: string;
+    phone?: string;
+    password: string;
+    id: string;
+  }
