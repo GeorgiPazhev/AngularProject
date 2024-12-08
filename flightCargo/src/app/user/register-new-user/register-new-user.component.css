@@ -5,11 +5,6 @@ table
     border-radius: 6px;
 }
 
-.rightAlign
-{
-  text-align: right;  
-}
-
 input
 {
     text-align: center;
@@ -20,4 +15,17 @@ button
 {
     border-radius: 7px;
     background-color: chartreuse;
+}
+
+.rightAlign
+{
+  text-align: right;  
+}
+
+.wrapper
+{
+    background-color: aqua;
+    border-radius: 6px;
+    height: calc(100vh - 200px);
+    background-image: url("/assets/cloudsBlueSky.jpg");
 }

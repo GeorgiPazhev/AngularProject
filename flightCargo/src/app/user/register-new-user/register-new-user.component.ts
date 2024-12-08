@@ -12,12 +12,12 @@ import { Router } from '@angular/router';
 })
 export class RegisterNewUserComponent {
 
-  @ViewChild("loginForm") registerForm:NgForm | undefined;  
+  @ViewChild("registerForm") registerForm:NgForm | undefined;  
    constructor(private userService:UserService, private router:Router){}
 
 
     handleRegisterForm()
     {
-
+      
     }
 }

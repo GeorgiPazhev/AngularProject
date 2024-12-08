@@ -1,5 +1,25 @@
+<div class="wrapper" align="center">
+    <h1>Log in</h1><br>
 <form #loginForm="ngForm" (ngSubmit)="handleLoginForm()">
-    <input type="text" name="username" placeholder="User Name" ngModel #username="ngModel" required/>
-    <input type="password" name="password" placeholder="password" ngModel #password="ngModel" required/>
-    <button>Login</button>
+    <table>
+        <tr><td colspan="2" align="center">
+            @if(username?.touched)
+            {
+                @if (username?.errors?.['required']) {
+                    <div class="error">Username is required</div>
+                }
+            }
+            
+            @if(password?.touched)
+            {
+                @if (password?.errors?.['required']) {
+                    <div class="error">Password is required</div>
+                }
+            }  
+        </td></tr>
+        <tr><td align="right" width="50%">Username:</td><td align="left"><input type="text" name="username" placeholder="Username" ngModel #username="ngModel" required/></td></tr>
+        <tr><td align="right">Password:</td><td align="left"><input type="password" name="password" placeholder="password" ngModel #password="ngModel" required/></td></tr>
+        <tr><td colspan="2" align="center"><button>Login</button></td></tr>
+    </table>
 </form>
+</div>

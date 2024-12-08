@@ -1,3 +1,11 @@
+table
+{
+    border: 0;
+    background-color: antiquewhite;
+    border-radius: 6px;
+    width: 100%;
+}
+
 input
 {
     background-color: yellow;
@@ -10,4 +18,18 @@ button
     background-color: #1a4ba7;
     color: white;
     border-radius: 7px;
+}
+
+.error
+{
+    color: red;
+    font-size:medium;
+}
+
+.wrapper
+{
+    background-color: aqua;
+    border-radius: 6px;
+    height: calc(100vh - 200px);
+    background-image: url("/assets/cloudsBlueSky.jpg");
 }

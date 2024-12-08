@@ -1,0 +1,13 @@
+p
+{
+    vertical-align: top;
+    display: inline-block;
+    
+}
+
+.footer-wrap
+{
+    background-color: #F4F4F4;
+    width: 100vw;
+    height: 60px;
+}
