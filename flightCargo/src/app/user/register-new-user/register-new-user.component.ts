@@ -2,11 +2,12 @@ import { Component, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { EmailDirective } from '../../directives/email.directive';
 
 @Component({
   selector: 'app-register-new-user',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, EmailDirective],
   templateUrl: './register-new-user.component.html',
   styleUrl: './register-new-user.component.css'
 })

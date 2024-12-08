@@ -3,10 +3,13 @@
 <form #loginForm="ngForm" (ngSubmit)="handleLoginForm()">
     <table>
         <tr><td colspan="2" align="center">
-            @if(username?.touched)
+            @if(email?.touched)
             {
-                @if (username?.errors?.['required']) {
-                    <div class="error">Username is required</div>
+                @if (email?.errors?.['required']) {
+                    <div class="error">E-mail is required</div>
+                }
+                @if (email?.errors?.['emailValidator']) {
+                    <div class="error">E-mail is not valid!</div>
                 }
             }
             
@@ -17,7 +20,7 @@
                 }
             }  
         </td></tr>
-        <tr><td align="right" width="50%">Username:</td><td align="left"><input type="text" name="username" placeholder="Username" ngModel #username="ngModel" required/></td></tr>
+        <tr><td align="right" width="50%">Email:</td><td align="left"><input type="text" name="email" placeholder="E-mail" ngModel #email="ngModel" required appEmail/></td></tr>
         <tr><td align="right">Password:</td><td align="left"><input type="password" name="password" placeholder="password" ngModel #password="ngModel" required/></td></tr>
         <tr><td colspan="2" align="center"><button>Login</button></td></tr>
     </table>

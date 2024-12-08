@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../user/user.service';
 
 @Component({
@@ -10,10 +10,15 @@ import { UserService } from '../user/user.service';
   styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent {
-    constructor(private userService:UserService){}
+    constructor(private userService:UserService, private router:Router){}
 
     get isUserLoggedIn():boolean
     {
        return this.userService.isLogged;
+    }
+
+    logout()
+    {
+      this.userService.logout().subscribe(()=>{this.router.navigate(['/home'])});
     }
 }
