@@ -1,5 +1,11 @@
-<div>
+<div class="aircraft-wrapper">
+<div class="image-display" align="center">
     <img [src]="currentAircraft?.pictureURL"/>
 </div>
-<div align='left'>Mark: {{currentAircraft?.mark}}</div>
-<div align='left'>Model: {{currentAircraft?.model}}</div>
+<div align='center'> {{currentAircraft?.mark}} {{currentAircraft?.model}}</div>
+<div align='center'>
+    <table>
+        <tr><td>Payload:</td><td>{{currentAircraft?.payload}} kg</td></tr>
+       
+    <tr><td>Volume:</td><td>{{currentAircraft?.volume}} m<sup>3</sup></td></tr></table></div>
+</div>

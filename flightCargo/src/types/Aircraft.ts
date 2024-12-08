@@ -1,6 +1,6 @@
 export interface Aircraft
 {
-    id:string;
+    _id:string;
     pictureURL:string;
     mark:string;
     model:string;

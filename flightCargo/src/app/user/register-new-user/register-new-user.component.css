@@ -1,0 +1,23 @@
+table
+{
+    border: 0;
+    background-color: antiquewhite;
+    border-radius: 6px;
+}
+
+.rightAlign
+{
+  text-align: right;  
+}
+
+input
+{
+    text-align: center;
+    border-radius: 7px;
+}
+
+button
+{
+    border-radius: 7px;
+    background-color: chartreuse;
+}

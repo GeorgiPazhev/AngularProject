@@ -1,6 +1,11 @@
-<h3>Register New User</h3><br>
+<div align="center">
+<h1>Register New User</h1><br>
 <form #registerForm="ngForm" (ngSubmit)="handleRegisterForm()">
-    <input type="text" name="username" placeholder="User Name" ngModel #username="ngModel" required/>
-    <input type="password" name="password" placeholder="Password" ngModel #password="ngModel" required/>
-    <button>Register</button>
+    <table>
+    <tr><td class="rightAlign">Username:</td><td><input type="text" name="username" placeholder="User Name" ngModel #username="ngModel" required/></td></tr>
+    <tr><td class="rightAlign">Password:</td><td><input type="password" name="password" placeholder="Password" ngModel #password="ngModel" required/></td></tr>
+    <tr><td class="rightAlign">Retype Password:</td><td><input type="password" name="retypePassword" placeholder="RetypePassword" ngModel #retypePassword="ngModel" required/></td></tr>    
+    <tr><td colspan="2" align="center"><button>Register</button></td></tr>
+   </table>
 </form>
+</div>
