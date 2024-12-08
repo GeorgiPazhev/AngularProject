@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const aircraft = require('./aircraft');
+const flights = require('./flight');
 const users = require('./users');
 const themes = require('./themes');
 const posts = require('./posts');
@@ -12,6 +13,7 @@ router.post('/login', authController.login);
 router.post('/logout', authController.logout);
 
 router.use('/aircraft', aircraft);
+router.use('/flights', flights);
 router.use('/users', users);
 router.use('/themes', themes);
 router.use('/posts', posts);

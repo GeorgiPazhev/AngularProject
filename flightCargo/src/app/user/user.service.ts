@@ -40,7 +40,7 @@ export class UserService {
   register(
     username: string,
     email: string,
-    tel: string,
+    phone: string,
     password: string,
     rePassword: string
   ) {
@@ -48,7 +48,7 @@ export class UserService {
       .post<UserForAuth>('/api/register', {
         username,
         email,
-        tel,
+        tel: phone,
         password,
         rePassword,
       })

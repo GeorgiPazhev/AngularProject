@@ -3,6 +3,9 @@ const tokenBlacklistModel = require('./tokenBlacklistModel');
 const themeModel = require('./themeModel');
 const postModel = require('./postModel');
 const aircraftModel = require('./aircraftModel');
+const flightModel = require('./flightModel');
+const airportModel = require('./airportModel');
+const shipmentModel = require('./shipmentModel');
 
 module.exports = {
     userModel,
@@ -10,4 +13,7 @@ module.exports = {
     themeModel,
     postModel,
     aircraftModel,
+    flightModel,
+    airportModel,
+    shipmentModel
 }
