@@ -36,4 +36,22 @@ export class UserService {
       .post('/api/logout', {})
       .pipe(tap((user) => this.user$$.next(null)));
   }
+
+  register(
+    username: string,
+    email: string,
+    tel: string,
+    password: string,
+    rePassword: string
+  ) {
+    return this.client
+      .post<UserForAuth>('/api/register', {
+        username,
+        email,
+        tel,
+        password,
+        rePassword,
+      })
+      .pipe(tap((user) => this.user$$.next(user)));
+  }
 }

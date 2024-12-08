@@ -18,6 +18,8 @@ export class RegisterNewUserComponent {
 
     handleRegisterForm()
     {
-      
+      const { username, password, retypePassword, email, phone } = this.registerForm?.value;
+      console.log("Register is running");
+      this.userService.register(username,email,phone,password,retypePassword);
     }
 }

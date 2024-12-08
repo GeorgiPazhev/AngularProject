@@ -7,7 +7,11 @@
         <li><a routerLink="/shipments"><span>Shipments</span></a></li>
         <li><a routerLink="/flights"><span>Planned flights</span></a></li>
       }
+      @else 
+      {
+      <li><a routerLink="/login"><span>Log in</span></a></li>
       <li><a routerLink="/register"><span>Register</span></a></li>
+      }
     </ul>
   </div>
 

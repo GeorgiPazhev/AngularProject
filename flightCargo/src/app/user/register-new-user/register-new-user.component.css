@@ -29,3 +29,11 @@ button
     height: calc(100vh - 200px);
     background-image: url("/assets/cloudsBlueSky.jpg");
 }
+
+.error
+{
+    background-color: red;
+    border-radius: 3px;
+    display: flexbox;
+    margin: 1px;
+}
