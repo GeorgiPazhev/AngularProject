@@ -37,3 +37,10 @@ button
     display: flexbox;
     margin: 1px;
 }
+
+.inputError
+{
+    background-color: red;
+    text-align: center;
+    border-radius: 7px;
+}

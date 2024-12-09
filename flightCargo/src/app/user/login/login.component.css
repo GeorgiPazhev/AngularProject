@@ -33,3 +33,10 @@ button
     height: calc(100vh - 200px);
     background-image: url("/assets/cloudsBlueSky.jpg");
 }
+
+.inputError
+{
+    background-color: red;
+    text-align: center;
+    border-radius: 7px;
+}

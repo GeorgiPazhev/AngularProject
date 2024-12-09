@@ -20,8 +20,16 @@
                 }
             }  
         </td></tr>
-        <tr><td align="right" width="50%">Email:</td><td align="left"><input type="text" name="email" placeholder="E-mail" ngModel #email="ngModel" required appEmail/></td></tr>
-        <tr><td align="right">Password:</td><td align="left"><input type="password" name="password" placeholder="password" ngModel #password="ngModel" required/></td></tr>
+        <tr>
+            <td align="right" width="50%">Email:</td>
+            <td align="left"><input type="text" [class]="(
+                (email?.touched && email?.errors?.['required']) || 
+                 (email?.touched && email?.errors?.['emailValidator'])) ? 'inputError':''" name="email" placeholder="E-mail" ngModel #email="ngModel" required appEmail/></td>
+        </tr>
+        <tr>
+            <td align="right">Password:</td>
+            <td align="left"><input type="password" name="password" [class] = "(password?.touched && password?.errors?.['required']) ? 'inputError':''" placeholder="password" ngModel #password="ngModel" required/></td>
+        </tr>
         <tr><td colspan="2" align="center"><button>Login</button></td></tr>
     </table>
 </form>
