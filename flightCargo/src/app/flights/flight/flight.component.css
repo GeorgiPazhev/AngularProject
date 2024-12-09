@@ -11,4 +11,5 @@ table{
     min-width: 190px;
     max-height: 300px;
     vertical-align: top;
+    display:inline-block;
 }
