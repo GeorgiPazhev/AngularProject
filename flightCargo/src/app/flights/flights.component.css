@@ -1,0 +1,6 @@
+.flights-wrapper
+{ 
+    border-radius: 5px;
+    background-image: url('/assets/cloudsBlueSky.jpg');
+    height: calc(100vh - 200px);
+}

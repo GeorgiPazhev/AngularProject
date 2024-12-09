@@ -1,1 +1,5 @@
-<p>flights works!</p>
+<div class="flights-wrapper">
+@for (flight of flights; track $index) {
+    <app-flight [flight]="flight"/>
+}
+</div>
