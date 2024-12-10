@@ -16,6 +16,6 @@ export class ShipmentsComponent implements OnInit{
    constructor(private shipmentService:ShipmentService){}
 
    ngOnInit(): void {
-     this.shipmentService.getShipments().subscribe((allShipments) => this.shipments = allShipments);
+     this.shipmentService.getShipments().subscribe((allShipments) => {this.shipments = allShipments; console.log(allShipments)});
    }
 }

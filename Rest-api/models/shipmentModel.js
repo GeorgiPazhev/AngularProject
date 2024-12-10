@@ -3,7 +3,7 @@ const { ObjectId } = mongoose.Schema.Types;
 
 const shipmentSchema = new mongoose.Schema(
     {
-    user:
+    userId:
     {
         type: ObjectId,
         ref: "User"
