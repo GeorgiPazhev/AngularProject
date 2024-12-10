@@ -18,6 +18,6 @@ export class PlanesComponent implements OnInit{
     }
 
     ngOnInit(): void {
-       this.aircraftService.getAllAircraft().subscribe((aircrafts)=>{this.planes =aircrafts; console.log(aircrafts);}  );
+       this.aircraftService.getAllAircraft().subscribe((aircrafts)=>this.planes =aircrafts);
     }
 }
