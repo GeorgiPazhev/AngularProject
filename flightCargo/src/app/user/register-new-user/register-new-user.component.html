@@ -1,6 +1,6 @@
 <div align="center" class="wrapper">
 <h1>Register New User</h1><br>
-<form #registerForm="ngForm" (ngSubmit)="handleRegisterForm()">
+<form #registerForm="ngForm" (ngSubmit)="handleRegisterForm()" [appPasswordMatches]="passControlNames">
     <table>
         <tr><td align="center" colspan="2">
             @if (username?.touched) {
@@ -10,24 +10,24 @@
                 }
             }
 
-            @if (password?.touched) {
+            @if (password?.touched || retypePassword?.touched) {
+                
                 @if(password?.errors?.['required'])
                 {
                     <div class="error">Password is required!</div>
                 }
-            }
 
-            @if (retypePassword?.touched) {
                 @if(retypePassword?.errors?.['required'])
                 {
                     <div class="error">Re-typed password is required!</div>
                 }
-                @if(retypePassword?.errors?.['matchPasswordsValidator'])
+
+                @if(registerForm?.errors?.['matchPasswordsValidator'])
                 {
                     <div class="error">Both passwords not match!</div>
                 }
-
             }
+
 
             @if(email?.touched)
             {
@@ -53,7 +53,7 @@
         </td></tr>
     <tr><td class="rightAlign">Username:</td><td><input type="text" name="username" placeholder="User Name" ngModel #username="ngModel" required/></td></tr>
     <tr><td class="rightAlign">Password:</td><td><input type="password" name="password" placeholder="Password" ngModel #password="ngModel" required/></td></tr>
-    <tr><td class="rightAlign">Retype Password:</td><td><input type="password" name="retypePassword" placeholder="RetypePassword" ngModel #retypePassword="ngModel" required appPasswordMatches="['password','retypePassword']"/></td></tr>
+    <tr><td class="rightAlign">Retype Password:</td><td><input type="password" name="retypePassword" placeholder="RetypePassword" ngModel #retypePassword="ngModel" required/></td></tr>
     <tr><td class="rightAlign">E-mail:</td><td><input type="text" name="email" placeholder="john.doe@mail.bg" ngModel #email="ngModel" required  appEmail/></td></tr>
     <tr><td class="rightAlign">Phone:</td><td><input type="text" name="phone" placeholder="+359123123123" ngModel #phone="ngModel" required /></td></tr>    
     <tr><td colspan="2" align="center"><button>Register</button></td></tr>
