@@ -3,6 +3,7 @@ const themeController = require('./themeController');
 const postController = require('./postController');
 const aircraftController = require('./aircraftController');
 const flightController = require('./flightController');
+const shipmentController = require('./shipmentController');
 
 module.exports = {
     authController,
@@ -10,4 +11,5 @@ module.exports = {
     postController,
     aircraftController,
     flightController,
+    shipmentController,
 }

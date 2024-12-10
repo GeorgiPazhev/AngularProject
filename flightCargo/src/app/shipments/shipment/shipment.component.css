@@ -1,0 +1,15 @@
+table{
+    border: 0;
+}
+
+.shipment-wrapper
+{
+    border-radius: 6px;
+    background-color: rgb(255, 228, 196);
+    margin-right:2px;
+    margin-top: 1px;
+    min-width: 190px;
+    max-height: 300px;
+    vertical-align: top;
+    display:inline-block;
+}

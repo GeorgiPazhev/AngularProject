@@ -5,6 +5,6 @@ const { flightController } = require('../controllers');
 
 // middleware that is specific to this router
 
-router.get('/', flightController.getFlights);
+router.get('/', auth(), flightController.getFlights);
 
 module.exports = router
