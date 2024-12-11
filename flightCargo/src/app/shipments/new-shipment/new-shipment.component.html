@@ -1,0 +1,14 @@
+<form class="register" [formGroup]="form" (ngSubmit)="createNewShipment()">
+<fieldset>
+    <legend>Shipment data:</legend>
+  <label for="width">Width:</label>
+  <input type="text" id="width" name="width" formControlName="width"><br><br>
+  <label for="height">Height:</label>
+  <input type="text" id="height" name="height" formControlName="height"><br><br>
+  <label for="edge">Email:</label>
+  <input type="text" id="edge" name="edge" formControlName="edge"><br><br>
+  <label for="flight">Flight: {{flight?.departureDate}} - {{flight?.departureAirport?.name}}</label>
+  <input type="hidden" name="flight" id="flight" value="{{flightId}}" formControlName="flight"><br><br>
+  <button>Apply shipment</button>
+</fieldset>
+</form>

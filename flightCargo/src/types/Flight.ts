@@ -4,7 +4,7 @@ import { Shipment } from "./Shipment";
 
 export interface Flight
 {
-    id:string;
+    _id:string;
     shipments:Shipment[];
     aircraft:Aircraft;
     departureDate:string;

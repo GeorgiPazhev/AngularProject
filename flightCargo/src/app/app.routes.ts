@@ -7,6 +7,7 @@ import { FlightsComponent } from './flights/flights.component';
 import { AuthGuard } from './guards/auth.guard';
 import { RegisterNewUserComponent } from './user/register-new-user/register-new-user.component';
 import { LoginComponent } from './user/login/login.component';
+import { NewShipmentComponent } from './shipments/new-shipment/new-shipment.component';
 
 export const routes: Routes = [
     {path:"", redirectTo:"/home", pathMatch:"full"},
@@ -16,5 +17,16 @@ export const routes: Routes = [
     {path:"register", component:RegisterNewUserComponent},
     {path:"planes", component:PlanesComponent},
     {path:"shipments", component:ShipmentsComponent, canActivate:[AuthGuard]},
+    {
+        path: 'new-shipment',
+        children: [
+          { path: '', redirectTo:"/home", pathMatch:"full" },
+          {
+            path: ':flightId',
+            component: NewShipmentComponent,
+            canActivate: [AuthGuard],
+          },
+        ],
+      },
     {path:"**", component:PageNotFoundComponent}
 ];

@@ -56,7 +56,7 @@
     <tr><td class="rightAlign">Retype Password:</td><td><input [class]="(retypePassword?.touched && (retypePassword?.errors?.['required']) || registerForm?.errors?.['matchPasswordsValidator'])? 'inputError':''" type="password" name="retypePassword" placeholder="RetypePassword" ngModel #retypePassword="ngModel" required/></td></tr>
     <tr><td class="rightAlign">E-mail:</td><td><input [class]="(email?.touched && (email?.errors?.['required']) || email?.errors?.['emailValidator'])? 'inputError':''" type="text" name="email" placeholder="john.doe@mail.bg" ngModel #email="ngModel" required  appEmail/></td></tr>
     <tr><td class="rightAlign">Phone:</td><td><input type="text" name="phone" placeholder="+359123123123" ngModel #phone="ngModel" required /></td></tr>    
-    <tr><td colspan="2" align="center"><button>Register</button></td></tr>
+    <tr><td colspan="2" align="center"><button [disabled]="registerForm.invalid">Register</button></td></tr>
    </table>
 </form>
 </div>

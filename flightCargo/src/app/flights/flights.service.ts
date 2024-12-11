@@ -13,4 +13,9 @@ export class FlightsService {
   {
     return this.httpClient.get<Flight[]>("/api/flights");
   }
+
+  getFlight(id:string)
+  {
+      return this.httpClient.get<Flight>(`/api/flights/${id}`);
+  }
 }

@@ -8,5 +8,6 @@
     <tr><td align="right">Arrival date:</td><td>{{singleFlight?.arrivalDate}}</td></tr>
     <tr><td align="right">Filled volume:</td><td>{{filledVolume.toFixed(2)}} %</td></tr>
     <tr><td align="right">Filled payload:</td><td>{{filledPayload.toFixed(2)}} %</td></tr>
+    <tr><td colspan="2"><a [routerLink] = "['/new-shipment', singleFlight?._id]">Add shipment</a></td></tr>
 </table>
 </div>
