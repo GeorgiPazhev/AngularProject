@@ -19,7 +19,7 @@ export class FlightComponent implements OnInit{
       const overallVolume:number = typeof this.singleFlight?.aircraft.volume =='undefined' ? 1 : this.singleFlight?.aircraft.volume;
       
       this.singleFlight?.shipments?.forEach((currentShipment)=> {this.filledPayload += currentShipment.weight});
-      this.singleFlight?.shipments?.forEach((currentShipment)=> {this.filledVolume += currentShipment.volume});
+      this.singleFlight?.shipments?.forEach((currentShipment)=> {this.filledVolume += currentShipment.height * currentShipment.height * currentShipment.edge});
       this.filledPayload = (this.filledPayload / overallPayload) * 100;
       this.filledVolume = (this.filledVolume / overallVolume) * 100;
     }

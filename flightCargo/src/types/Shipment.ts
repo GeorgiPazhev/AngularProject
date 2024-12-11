@@ -5,8 +5,10 @@ export interface Shipment
 {
     id:string;
     userId:User; 
-    volume:number;
     weight:number;
     price:number;
     currency:Currency;
+    width:number;
+    height:number;
+    edge:number;
 }

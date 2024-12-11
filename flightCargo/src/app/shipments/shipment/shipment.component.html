@@ -2,7 +2,10 @@
     <h3 align="center">Shipment</h3>
     <table>
         <tr><td align="right">Weight: </td><td>{{singleShipment?.weight}} kg</td></tr>
-        <tr><td align="right">Volume: </td><td>{{singleShipment?.volume}} m<sup>3</sup></td></tr>
+        <tr><td align="right">Volume: </td><td>{{(singleShipment != null) ? singleShipment.width * singleShipment.height * singleShipment.edge : 0}} m<sup>3</sup></td></tr>
+        <tr><td align="right">Height: </td><td>{{singleShipment?.height}} m</td></tr>
+        <tr><td align="right">Width: </td><td>{{singleShipment?.width}} m</td></tr>
+        <tr><td align="right">Edge: </td><td>{{singleShipment?.edge}} m</td></tr>
         <tr><td align="right">Sent by: </td><td>{{singleShipment?.userId?.username}} </td></tr>
         <tr><td align="right">Price: </td><td>{{singleShipment?.price}} {{singleShipment?.currency?.abbreviature}}</td></tr>
     </table>

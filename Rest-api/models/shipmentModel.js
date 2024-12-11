@@ -28,6 +28,21 @@ const shipmentSchema = new mongoose.Schema(
         type:ObjectId,
         ref:"Currency",
         required:true
+    },
+    width:
+    {
+        type: Number,
+        required:true
+    },
+    height:
+    {
+        type: Number,
+        required:true
+    },
+    edge:
+    {
+        type: Number,
+        required:true
     }
      }, { _id: true });
 
