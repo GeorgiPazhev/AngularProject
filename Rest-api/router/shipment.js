@@ -7,5 +7,6 @@ const { shipmentController } = require('../controllers');
 
 router.get('/', auth(), shipmentController.getAllShipments);
 router.get('/:uid', auth(), shipmentController.getAllShipmentsByUser);
+router.post('/', auth(), shipmentController.createNewShipment);
 
 module.exports = router

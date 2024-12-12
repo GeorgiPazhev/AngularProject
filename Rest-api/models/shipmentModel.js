@@ -8,11 +8,6 @@ const shipmentSchema = new mongoose.Schema(
         type: ObjectId,
         ref: "User"
     },
-    volume:
-    {
-        type: Number,
-        required:true
-    },
     weight:
     {
         type: Number,

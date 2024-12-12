@@ -12,3 +12,14 @@ export interface Shipment
     height:number;
     edge:number;
 }
+
+export interface ShipmentForPost
+{
+    userId:string; 
+    width:number;
+    height:number;
+    edge:number;
+    weight:number;
+    price:number;
+    currency:string;
+}

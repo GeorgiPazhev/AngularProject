@@ -15,4 +15,9 @@ export class ShipmentService {
    {
       return this.httpClient.get<Shipment[]>("/api/shipments");
    }
+
+   createShipment(width:number, height:number, edge:number, weight:number, flightId:string)
+   {
+      return this.httpClient.post("/api/shipments", {width, height, edge, weight, flightId});
+   }
 }

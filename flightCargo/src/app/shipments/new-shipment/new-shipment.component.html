@@ -1,14 +1,18 @@
+<div class="new-shipment-wrapper">
 <form class="register" [formGroup]="form" (ngSubmit)="createNewShipment()">
 <fieldset>
     <legend>Shipment data:</legend>
-  <label for="width">Width:</label>
+  <label for="width" align="right">Width:</label>
   <input type="text" id="width" name="width" formControlName="width"><br><br>
-  <label for="height">Height:</label>
+  <label for="height" align="right">Height:</label>
   <input type="text" id="height" name="height" formControlName="height"><br><br>
-  <label for="edge">Email:</label>
+  <label for="edge" align="right">Edge:</label>
   <input type="text" id="edge" name="edge" formControlName="edge"><br><br>
-  <label for="flight">Flight: {{flight?.departureDate}} - {{flight?.departureAirport?.name}}</label>
-  <input type="hidden" name="flight" id="flight" value="{{flightId}}" formControlName="flight"><br><br>
+  <label for="weight" align="right">Weight:</label>
+  <input type="text" id="weight" name="weight" formControlName="weight"><br><br>
+  <label align="right">Price: {{calculateShipmentPrice()}} EUR</label><br><br>
+  <label>Flight: {{flight?.departureDate}} - {{flight?.departureAirport?.name}} - {{flight?.arrivalAirport?.name}}</label><br><br>
   <button>Apply shipment</button>
 </fieldset>
 </form>
+</div>

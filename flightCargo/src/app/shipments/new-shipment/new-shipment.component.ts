@@ -20,7 +20,7 @@ export class NewShipmentComponent implements OnInit {
     width: new FormControl('', [Validators.required,]),
     height: new FormControl('', [Validators.required,]),
     edge: new FormControl('', [Validators.required,]),
-    flight: new FormControl('', [Validators.required]),
+    weight: new FormControl('', [Validators.required,]),
   });
 
   flightId:string|null = null;
@@ -41,10 +41,30 @@ export class NewShipmentComponent implements OnInit {
     
   }
 
+  calculateShipmentPrice()
+  {
+    return Number(this.form?.value?.weight) * 3;
+  }
+
   createNewShipment()
   {
+    if (this.form.invalid) {
+      return;
+    }
 
-    this.router.navigate(["/flights"]);
+    const 
+    {
+      width,
+      height,
+      edge,
+      weight
+    } = this.form.value;
+    if (this.flightId != null)
+    {
+      console.log("Send shipment");
+      this.shipmentService.createShipment(Number(width), Number(height),Number(edge),Number(weight), this.flightId)
+                          .subscribe(()=>{this.router.navigate(["/flights"]); console.log("subscribe shippost")});
+    }
   }
 
 
