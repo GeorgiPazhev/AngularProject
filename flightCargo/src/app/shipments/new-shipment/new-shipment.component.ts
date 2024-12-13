@@ -63,7 +63,7 @@ export class NewShipmentComponent implements OnInit {
     {
       console.log("Send shipment");
       this.shipmentService.createShipment(Number(width), Number(height),Number(edge),Number(weight), this.flightId)
-                          .subscribe(()=>{this.router.navigate(["/flights"]); console.log("subscribe shippost")});
+                          .subscribe(()=>{this.router.navigate(["/flights"]);});
     }
   }
 

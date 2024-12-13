@@ -2,7 +2,7 @@ import { Address } from "./Address";
 import { Role } from "./Role";
 
 export interface User{
-    id: string;
+    _id: string;
     phone:string;
     email:string;
     username: string;
@@ -16,5 +16,5 @@ export interface UserForAuth {
     email: string;
     phone?: string;
     password: string;
-    id: string;
+    _id: string;
   }

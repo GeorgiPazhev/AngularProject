@@ -15,7 +15,7 @@ export class ShipmentService {
    getShipments()
    {
     const userId = this.userService.getUserId();  
-    return this.httpClient.get<Shipment[]>(`/api/shipments`);
+    return this.httpClient.get<Shipment[]>(`/api/shipments/${userId}`);
    }
 
    createShipment(width:number, height:number, edge:number, weight:number, flightId:string)

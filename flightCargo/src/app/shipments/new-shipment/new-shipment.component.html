@@ -1,4 +1,19 @@
 <div class="new-shipment-wrapper">
+@if (form?.get('width')?.touched && form?.get('width')?.errors?.['required'])
+{
+    <div style="color:red"> The width is required!</div>
+}
+
+@if (form?.get('height')?.touched && form?.get('height')?.errors?.['required'])
+{
+    <div style="color:red"> The width is required!</div>
+}
+
+@if (form?.get('edge')?.touched && form?.get('edge')?.errors?.['required'])
+{
+    <div style="color:red"> The width is required!</div>
+}
+
 <form class="register" [formGroup]="form" (ngSubmit)="createNewShipment()">
 <fieldset>
     <legend>Shipment data:</legend>

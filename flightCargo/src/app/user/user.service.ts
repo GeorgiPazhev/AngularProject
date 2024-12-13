@@ -25,10 +25,8 @@ export class UserService {
   }
 
   getUserId():string|undefined
-  {
-    let userID:string|undefined;
-    this.user$.subscribe( (user) => userID = user?.id);
-    return userID;
+  { 
+    return this.user?._id;
   }
 
    login(username:string, password:string)
