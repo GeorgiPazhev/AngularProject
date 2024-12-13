@@ -5,6 +5,9 @@ import { AircraftService } from '../../aircraft.service';
 import { FlightsService } from '../flights.service';
 import { Airport } from '../../../types/Airport';
 import { Router } from '@angular/router';
+import { airportValidator } from '../../validators/airportsValidator';
+import { datesValidator } from '../../validators/datesValidator';
+
 
 @Component({
   selector: 'app-new-flight',
@@ -22,9 +25,9 @@ export class NewFlightComponent implements OnInit{
     aircraft: new FormControl('', [Validators.required]),
     departureDate: new FormControl('', [Validators.required, ]),
     arrivalDate: new FormControl('', [Validators.required, ]),
-    departureAirport: new FormControl('', [Validators.required, ]),
+    departureAirport: new FormControl('', [Validators.required,]),
     arrivalAirport:  new FormControl('', [Validators.required, ]),
-  });
+  }, [airportValidator("departureAirport", "arrivalAirport"), datesValidator("departureDate","arrivalDate")]);
 
   constructor(private aircraftService:AircraftService, private flightService: FlightsService, private router:Router){  }
 

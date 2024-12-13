@@ -45,11 +45,19 @@
     
     }
     
+    @if ((form.get('arrivalDate')?.touched || form.get('departureDate')?.touched) && form.errors?.['datesValidator'])
+    {
+        <div style="color:red"> The time difference between arrival date and departure date must be greather than 30 minutes!</div>
+    }
     
+    @if ((form.get('departureAirport')?.touched || form.get('arrivalAirport')?.touched) && form.errors?.['airportValidator'])
+    {
+        <div style="color:red"> The departure airport must be different than the arrival airport!</div>
+    }
     
     <form class="register" [formGroup]="form" (ngSubmit)="createNewFlight()">
     <fieldset>
-        <legend>Shipment data:</legend>
+        <legend>Flight data:</legend>
       <label for="aircraft" align="right">Aircraft:</label>
       <select name="aircraft" formControlName="aircraft">
         @for (singleAircraft of aircrafts; track $index) {
