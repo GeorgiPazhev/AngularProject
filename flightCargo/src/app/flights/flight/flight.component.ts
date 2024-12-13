@@ -1,11 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Flight } from '../../../types/Flight';
 import { RouterLink, RouterModule } from '@angular/router';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-flight',
   standalone: true,
-  imports: [RouterLink, RouterModule],
+  imports: [RouterLink, RouterModule, DatePipe],
   templateUrl: './flight.component.html',
   styleUrl: './flight.component.css'
 })

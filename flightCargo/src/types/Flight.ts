@@ -7,8 +7,8 @@ export interface Flight
     _id:string;
     shipments:Shipment[];
     aircraft:Aircraft;
-    departureDate:string;
-    arrivalDate:string;
+    departureDate:Date;
+    arrivalDate:Date;
     departureAirport:Airport; 
     arrivalAirport:Airport; 
 }

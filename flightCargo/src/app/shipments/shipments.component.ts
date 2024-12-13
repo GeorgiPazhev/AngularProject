@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Shipment } from '../../types/Shipment';
 import { ShipmentService } from './shipment.service';
 import { ShipmentComponent } from './shipment/shipment.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-shipments',
@@ -12,10 +13,15 @@ import { ShipmentComponent } from './shipment/shipment.component';
 })
 export class ShipmentsComponent implements OnInit{
    shipments:Shipment[]|null = null;
-
-   constructor(private shipmentService:ShipmentService){}
+   flightId:string|null = null;
+   constructor(private shipmentService:ShipmentService, private activatedRoute:ActivatedRoute){}
 
    ngOnInit(): void {
-     this.shipmentService.getShipments().subscribe((allShipments) => this.shipments = allShipments);
+     this.flightId = this.activatedRoute.snapshot.params['flightId'];
+     console.log(this.flightId);
+     if( this.flightId != null)
+     {
+        this.shipmentService.getShipments(this.flightId).subscribe((allShipments) => this.shipments = allShipments);
+     }
    }
 }

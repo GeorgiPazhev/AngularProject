@@ -2,7 +2,7 @@ const { flightModel } = require('../models');
 
 function getFlights(req, res, next) {
     
-    flightModel.find()
+    flightModel.find({ departureDate: { $gte: new Date() } })
         .populate('aircraft')
         .populate('shipments')
         .populate('departureAirport')

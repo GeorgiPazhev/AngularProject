@@ -38,6 +38,11 @@ const shipmentSchema = new mongoose.Schema(
     {
         type: Number,
         required:true
+    },
+    flightId:
+    {
+        type: ObjectId,
+        ref: "Flight"
     }
      }, { _id: true });
 

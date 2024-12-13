@@ -16,7 +16,13 @@ export const routes: Routes = [
     {path:"login", component:LoginComponent},
     {path:"register", component:RegisterNewUserComponent},
     {path:"planes", component:PlanesComponent},
-    {path:"shipments", component:ShipmentsComponent, canActivate:[AuthGuard]},
+    {
+        path:"shipments",
+        children:[
+            {path:'', redirectTo:"/home", pathMatch:"full"},
+            {path: ':flightId', component:ShipmentsComponent, canActivate:[AuthGuard]}
+        ]
+    },
     {
         path: 'new-shipment',
         children: [

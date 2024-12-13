@@ -12,10 +12,10 @@ export class ShipmentService {
 
    }
 
-   getShipments()
+   getShipments(flightId:string)
    {
     const userId = this.userService.getUserId();  
-    return this.httpClient.get<Shipment[]>(`/api/shipments/${userId}`);
+    return this.httpClient.get<Shipment[]>(`/api/shipments/${flightId}`);
    }
 
    createShipment(width:number, height:number, edge:number, weight:number, flightId:string)

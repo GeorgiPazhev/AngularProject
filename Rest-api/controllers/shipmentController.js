@@ -12,9 +12,10 @@ function getAllShipments(req, res, next) {
         .catch(next);
 }
 
-function getAllShipmentsByUser(req, res, next) {
-    const {uid} = req.params;
-    shipmentModel.find({userId:uid})
+function getAllShipmentsByUserAndFlight(req, res, next) {
+    const {_id: userId} = req.user;
+    const {flight} = req.params;
+    shipmentModel.find({userId: userId, flightId:flight})
         .populate('userId')
         .populate('currency')
         .then(shipments => {
@@ -28,13 +29,13 @@ function createNewShipment(req, res, next)
     const { width, height, edge, weight, flightId} = req.body;
     const { _id: userId } = req.user;
     const price = weight * 3; 
-    shipmentModel.create({width, height, edge, weight, currency: '6755a15de152d79bee40e600', price, userId})
+    shipmentModel.create({width, height, edge, weight, currency: '6755a15de152d79bee40e600', price, userId, flightId})
            .then(shipment => {flightModel.updateOne({ _id: flightId }, { $push: { shipments: shipment._id} }).then((updatedShipment) => res.status(200).json(updatedShipment))})
            .catch(next);
 }
 
 module.exports = {
     getAllShipments,
-    getAllShipmentsByUser,
+    getAllShipmentsByUserAndFlight,
     createNewShipment
 }
