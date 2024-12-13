@@ -25,7 +25,17 @@ function getFlight(req, res, next) {
         })
         .catch(next);
 }
+
+function createNewFlight(req, res, next) {
+    const {departureAirport, arrivalAirport, arrivalDate, departureDate, aircraft} = req.body;
+    flightModel.create({departureAirport, arrivalAirport, arrivalDate: new Date(arrivalDate), departureDate: new Date(departureDate), aircraft, shipments:[]})
+               .then( (flight) => res.status(200).json(flight))
+               .catch(next);
+
+}
+
 module.exports = {
     getFlights,
     getFlight,
+    createNewFlight,
 }

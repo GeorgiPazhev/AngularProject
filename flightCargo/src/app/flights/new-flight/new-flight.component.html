@@ -1,0 +1,78 @@
+<div class="new-flight-wrapper">
+    @if (form.get('aircraft')?.touched)
+    {
+        @if (form.get('aircraft')?.errors?.['required'])
+        {
+            <div style="color:red"> The aircraft is required!</div>
+        }
+    
+    }
+    
+    @if(form.get('departureAirport')?.touched)
+    { 
+        @if(form.get('departureAirport')?.errors?.['required'])
+        {
+            <div style="color:red"> The departure airport is required!</div>
+        }
+    
+     }
+    
+    @if(form.get('arrivalAirport')?.touched)
+    {
+        @if( form.get('arrivalAirport')?.errors?.['required'])
+        {
+            <div style="color:red"> The arrival airport is required!</div>
+        }
+    
+    }
+    
+    @if (form.get('departureDate')?.touched)
+    {
+        @if( form.get('departureDate')?.errors?.['required'])
+        {
+            <div style="color:red"> The departure date is required!</div>
+        }
+    
+    }
+
+    
+    @if (form.get('arrivalDate')?.touched)
+    {
+        @if( form.get('arrivalDate')?.errors?.['required'])
+        {
+            <div style="color:red"> The arrival date is required!</div>
+        }
+    
+    }
+    
+    
+    
+    <form class="register" [formGroup]="form" (ngSubmit)="createNewFlight()">
+    <fieldset>
+        <legend>Shipment data:</legend>
+      <label for="aircraft" align="right">Aircraft:</label>
+      <select name="aircraft" formControlName="aircraft">
+        @for (singleAircraft of aircrafts; track $index) {
+            <option value="{{singleAircraft._id}}">{{singleAircraft.mark}} - {{singleAircraft.model}}</option>
+        }
+      </select><br><br>
+      <label for="departureAirport" align="right">Departure Airport:</label>
+      <select name="departureAirport" formControlName="departureAirport">
+        @for (singleAirport of airports; track $index) {
+            <option value="{{singleAirport._id}}">{{singleAirport.name}}</option>
+        }
+      </select><br><br>
+      <label for="arrivalAirport" align="right">Arrival Airport:</label>
+      <select name="arrivalAirport" formControlName="arrivalAirport">
+        @for (singleAirport of airports; track $index) {
+            <option value="{{singleAirport._id}}">{{singleAirport.name}}</option>
+        }
+      </select><br><br>
+      <label for="departureDate" align="right">Departure date:</label>
+      <input type="datetime-local" id="departureDate" name="departureDate" formControlName="departureDate"><br><br>
+      <label for="arrivalDate" align="right">Arrival date:</label>
+      <input type="datetime-local" id="arrivalDate" name="arrivalDate" formControlName="arrivalDate"><br><br>
+      <button>Create new flight</button>
+    </fieldset>
+    </form>
+    </div>

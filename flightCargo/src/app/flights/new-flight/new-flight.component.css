@@ -1,0 +1,13 @@
+fieldset
+{
+    border-radius: 6px;
+    background-color: rgb(255, 228, 196);;
+}
+
+.new-flight-wrapper
+{
+    background-color: rgb(255, 228, 196);
+    border-radius: 5px;
+    
+    height: calc(100vh - 200px);
+}

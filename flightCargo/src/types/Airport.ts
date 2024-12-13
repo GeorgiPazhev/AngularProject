@@ -2,7 +2,7 @@ import { Address } from "./Address";
 
 export interface Airport
 {
-    id:string;
+    _id:string;
     name: string;
     address:Address;
 }

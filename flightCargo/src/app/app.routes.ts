@@ -8,6 +8,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { RegisterNewUserComponent } from './user/register-new-user/register-new-user.component';
 import { LoginComponent } from './user/login/login.component';
 import { NewShipmentComponent } from './shipments/new-shipment/new-shipment.component';
+import { NewFlightComponent } from './flights/new-flight/new-flight.component';
 
 export const routes: Routes = [
     {path:"", redirectTo:"/home", pathMatch:"full"},
@@ -33,6 +34,7 @@ export const routes: Routes = [
             canActivate: [AuthGuard],
           },
         ],
-      },
+    },
+    {path:"new-flight", component:NewFlightComponent, canActivate:[AuthGuard]},
     {path:"**", component:PageNotFoundComponent}
 ];
