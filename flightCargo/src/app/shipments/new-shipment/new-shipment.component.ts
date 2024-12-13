@@ -5,6 +5,10 @@ import { ShipmentService } from '../shipment.service';
 import { FlightsService } from '../../flights/flights.service';
 import { Flight } from '../../../types/Flight';
 import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
+import { numberValidator } from '../../validators/numberValidator';
+import { capicityValidator } from '../../validators/capicityValidator';
+
+
 
 @Component({
   selector: 'app-new-shipment',
@@ -14,17 +18,19 @@ import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router'
   styleUrl: './new-shipment.component.css'
 })
 export class NewShipmentComponent implements OnInit {
-  
-  
-  form = new FormGroup({
-    width: new FormControl('', [Validators.required,]),
-    height: new FormControl('', [Validators.required,]),
-    edge: new FormControl('', [Validators.required,]),
-    weight: new FormControl('', [Validators.required,]),
-  });
 
+  
   flightId:string|null = null;
   flight:Flight|null = null;
+
+  form = new FormGroup({
+    width: new FormControl('', [Validators.required, numberValidator()]),
+    height: new FormControl('', [Validators.required, numberValidator()]),
+    edge: new FormControl('', [Validators.required, numberValidator()]),
+    weight: new FormControl('', [Validators.required, numberValidator()]),
+  },[capicityValidator("width", "height", "edge", "weight", this)]);
+
+ 
 
   constructor(private shipmentService:ShipmentService, private flightsService:FlightsService, private router:Router, private activatedRoute:ActivatedRoute)
   {
@@ -38,7 +44,7 @@ export class NewShipmentComponent implements OnInit {
     {
       this.flightsService.getFlight(this.flightId).subscribe((curFlight) => this.flight = curFlight);
     }
-    
+
   }
 
   calculateShipmentPrice()
@@ -67,6 +73,15 @@ export class NewShipmentComponent implements OnInit {
     }
   }
 
-
-
+  getOverallVolume():number {
+    let overall:number = 0;
+    this.flight?.shipments.forEach((shipment)=>{overall += shipment.width * shipment.height * shipment.edge});
+    return overall;
+  }
+  getOverallPayload():number {
+    let overall:number = 0;
+    this.flight?.shipments.forEach((shipment)=>{overall += shipment.weight});
+    return overall;
+  }
+  
 }

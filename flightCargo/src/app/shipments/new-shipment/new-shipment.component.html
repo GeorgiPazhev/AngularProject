@@ -1,17 +1,60 @@
 <div class="new-shipment-wrapper">
-@if (form?.get('width')?.touched && form?.get('width')?.errors?.['required'])
+@if (form.get('width')?.touched)
 {
-    <div style="color:red"> The width is required!</div>
+    @if (form.get('width')?.errors?.['required'])
+    {
+        <div style="color:red"> The width is required!</div>
+    }
+
+    @if (form.get('width')?.errors?.['numberValidator'])
+    {
+        <div style="color:red"> The width should be decimal number!</div>
+    }
+
 }
 
-@if (form?.get('height')?.touched && form?.get('height')?.errors?.['required'])
+@if(form.get('height')?.touched)
+{ 
+    @if(form.get('height')?.errors?.['required'])
+    {
+        <div style="color:red"> The height is required!</div>
+    }
+
+    @if(form.get('height')?.errors?.['numberValidator'])
+    {
+        <div style="color:red"> The height should be decimal number!</div>
+    }
+ }
+
+@if(form.get('edge')?.touched)
 {
-    <div style="color:red"> The width is required!</div>
+    @if( form.get('edge')?.errors?.['required'])
+    {
+        <div style="color:red"> The Edge size is required!</div>
+    }
+
+    @if (form.get('edge')?.errors?.['numberValidator'])
+    {
+        <div style="color:red"> The edge should be decimal number!</div>
+    }
 }
 
-@if (form?.get('edge')?.touched && form?.get('edge')?.errors?.['required'])
+@if (form.get('weight')?.touched)
 {
-    <div style="color:red"> The width is required!</div>
+    @if( form.get('weight')?.errors?.['required'])
+    {
+        <div style="color:red"> The weight is required!</div>
+    }
+
+    @if (form.get('weight')?.errors?.['numberValidator'])
+    {
+        <div style="color:red"> The weight should be decimal number!</div>
+    }
+}
+
+@if(form.errors?.['capacityValidator'])
+{
+    <div style="color:red"> The shipment does not fit in aircraft capacity!</div>
 }
 
 <form class="register" [formGroup]="form" (ngSubmit)="createNewShipment()">
