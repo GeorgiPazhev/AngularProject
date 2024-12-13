@@ -14,7 +14,7 @@ export interface User{
 export interface UserForAuth {
     username: string;
     email: string;
-    phone?: string;
+    tel: string;
     password: string;
     _id: string;
   }

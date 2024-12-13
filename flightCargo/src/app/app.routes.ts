@@ -9,6 +9,7 @@ import { RegisterNewUserComponent } from './user/register-new-user/register-new-
 import { LoginComponent } from './user/login/login.component';
 import { NewShipmentComponent } from './shipments/new-shipment/new-shipment.component';
 import { NewFlightComponent } from './flights/new-flight/new-flight.component';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 export const routes: Routes = [
     {path:"", redirectTo:"/home", pathMatch:"full"},
@@ -35,6 +36,7 @@ export const routes: Routes = [
           },
         ],
     },
+    {path:"edit-profile", component:EditProfileComponent, canActivate:[AuthGuard]},
     {path:"new-flight", component:NewFlightComponent, canActivate:[AuthGuard]},
     {path:"**", component:PageNotFoundComponent}
 ];

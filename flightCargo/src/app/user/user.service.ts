@@ -57,6 +57,16 @@ export class UserService {
         password,
         rePassword,
       })
-      .pipe(tap((user) => {this.user$$.next(user); console.log(user);}));
+      .pipe(tap((user) => {this.user$$.next(user);}));
+  }
+
+  updateProfile(username: string, email: string, phone?: string) {
+    return this.client
+      .put<UserForAuth>(`/api/users/profile`, {
+        username,
+        email,
+        tel:phone,
+      })
+      .pipe(tap((user) => this.user$$.next(user)));
   }
 }

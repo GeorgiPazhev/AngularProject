@@ -1,0 +1,46 @@
+table
+{
+    border: 0;
+    background-color: antiquewhite;
+    border-radius: 6px;
+}
+
+input
+{
+    text-align: center;
+    border-radius: 7px;
+}
+
+button
+{
+    border-radius: 7px;
+    background-color: chartreuse;
+}
+
+.rightAlign
+{
+  text-align: right;  
+}
+
+.wrapper
+{
+    background-color: aqua;
+    border-radius: 6px;
+    height: calc(100vh - 200px);
+    background-image: url("/assets/cloudsBlueSky.jpg");
+}
+
+.error
+{
+    background-color: red;
+    border-radius: 3px;
+    display: flexbox;
+    margin: 1px;
+}
+
+.inputError
+{
+    background-color: red;
+    text-align: center;
+    border-radius: 7px;
+}
