@@ -1,8 +1,8 @@
 ## Angular project
 The project is based on three parts: 
-- The frond end Angular 18 application (flightCargo)
-- The MongoDB database named flightCargo
-- The Backend REST API
+- The frond end Angular 18 application flightCargo, located in sub-folder "flightCargo".
+- The MongoDB database with documents located in sub-folder "MongoDBData/flightCargo".
+- The Backend located in "Rest-Api" subfolder.
 
 ## How to run
 - Clone the repository first
