@@ -17,6 +17,11 @@ export class NavBarComponent {
        return this.userService.isLogged;
     }
 
+    get userName():string
+    {
+      return this.userService.user!.username;
+    }
+
     logout()
     {
       this.userService.logout().subscribe(()=>{this.router.navigate(['/home'])});

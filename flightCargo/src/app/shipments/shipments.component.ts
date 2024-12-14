@@ -18,7 +18,6 @@ export class ShipmentsComponent implements OnInit{
 
    ngOnInit(): void {
      this.flightId = this.activatedRoute.snapshot.params['flightId'];
-     console.log(this.flightId);
      if( this.flightId != null)
      {
         this.shipmentService.getShipments(this.flightId).subscribe((allShipments) => this.shipments = allShipments);
