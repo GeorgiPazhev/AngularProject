@@ -34,8 +34,26 @@ function createNewShipment(req, res, next)
            .catch(next);
 }
 
+function removeShipment(req, res, next)
+{
+    const { flightId, shipmentId } = req.params;
+    Promise.all([
+        shipmentModel.findOneAndDelete({ _id: shipmentId, flightId }),
+        flightModel.findOneAndUpdate({ _id: flightId }, { $pull: { shipments: shipmentId } }),
+    ])
+    .then(([deletedOne, _]) => {
+            if (deletedOne) {
+                res.status(200).json(deletedOne)
+            } else {
+                res.status(401).json({ message: `Not allowed!` });
+            }
+        })
+        .catch(next);
+}
+
 module.exports = {
     getAllShipments,
     getAllShipmentsByUserAndFlight,
-    createNewShipment
+    createNewShipment,
+    removeShipment,
 }

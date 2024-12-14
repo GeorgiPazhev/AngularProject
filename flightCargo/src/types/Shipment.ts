@@ -3,7 +3,7 @@ import { User } from "./User";
 
 export interface Shipment
 {
-    id:string;
+    _id:string;
     userId:User; 
     weight:number;
     price:number;
@@ -11,6 +11,7 @@ export interface Shipment
     width:number;
     height:number;
     edge:number;
+    flightId:string;
 }
 
 export interface ShipmentForPost

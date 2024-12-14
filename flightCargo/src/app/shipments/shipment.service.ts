@@ -22,4 +22,9 @@ export class ShipmentService {
    {
       return this.httpClient.post("/api/shipments", {width, height, edge, weight, flightId});
    }
+
+   removeShipment(flightId:string, shipmentId:string)
+   {
+    return this.httpClient.delete(`/api/shipments/${flightId}/${shipmentId}`);
+   }
 }

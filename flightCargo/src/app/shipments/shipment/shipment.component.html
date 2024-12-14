@@ -8,5 +8,6 @@
         <tr><td align="right">Edge: </td><td>{{singleShipment?.edge}} m</td></tr>
         <tr><td align="right">Sent by: </td><td>{{singleShipment?.userId?.username}} </td></tr>
         <tr><td align="right">Price: </td><td>{{singleShipment?.price}} {{singleShipment?.currency?.abbreviature}}</td></tr>
+        <tr><td colspan="2"><button (click)="removeShipment()">Reject</button></td></tr>
     </table>
 </div>
