@@ -1,5 +1,6 @@
 
-p{
+.text-wrapper
+{
     border-radius: 7px;
     width: 100%;
     background-color: rgb(255, 228, 196);
