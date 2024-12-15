@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsRecord } from '../../../types/NewsRecord';
+import { NewsService } from '../news.service';
 
 @Component({
   selector: 'app-sidebar-news',
@@ -12,13 +13,13 @@ export class SidebarNewsComponent implements OnInit{
 
   news:NewsRecord[] = [];
   
-  constructor()
+  constructor(private newsService:NewsService)
   {
 
   }
 
   ngOnInit(): void {
-
+    this.newsService.getNews(5).subscribe((newsList) => {this.news=newsList; console.log(newsList)});
   }
 
   

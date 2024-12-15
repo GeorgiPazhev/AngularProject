@@ -1,0 +1,12 @@
+<div class="new-record-container">
+<form [formGroup]="form" (ngSubmit)="createNewsRecord()">
+    
+    <label for="caption">Caption: </label>
+    <input type="text" id="caption" name="caption" formControlName="caption">
+    <label for="abstract">Abstract: </label>
+    <textarea rows="3" name="abstract" formControlName="abstract"></textarea>
+    <label for="content">Content: </label>
+    <textarea rows="9" name="content" formControlName="content"></textarea>
+    <button type="submit">Create record</button>
+</form>
+</div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsRecord } from '../../../types/NewsRecord';
+import { NewsService } from '../news.service';
 
 @Component({
   selector: 'app-news-list',
@@ -12,11 +13,11 @@ export class NewsListComponent implements OnInit{
 
   news:NewsRecord[] = [];
 
-  constructor(){}
+  constructor(private newsService:NewsService){}
 
   ngOnInit()
   {
-    
+    this.newsService.getNews(null).subscribe((newsList) => this.news=newsList);
   }
 
 

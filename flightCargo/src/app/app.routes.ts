@@ -10,6 +10,9 @@ import { LoginComponent } from './user/login/login.component';
 import { NewShipmentComponent } from './shipments/new-shipment/new-shipment.component';
 import { NewFlightComponent } from './flights/new-flight/new-flight.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { NewsListComponent } from './news/news-list/news-list.component';
+import { NewsDetailsComponent } from './news/news-details/news-details.component';
+import { CreateNewsRecordComponent } from './news/create-news-record/create-news-record.component';
 
 export const routes: Routes = [
     {path:"", redirectTo:"/home", pathMatch:"full"},
@@ -35,6 +38,14 @@ export const routes: Routes = [
             canActivate: [AuthGuard],
           },
         ],
+    },
+    {
+      path: 'news',
+      children:[
+        {path:'', component:NewsListComponent},
+        {path:'details/:id', component:NewsDetailsComponent},
+        {path:'create', component:CreateNewsRecordComponent, canActivate: [AuthGuard]}
+      ]
     },
     {path:"edit-profile", component:EditProfileComponent, canActivate:[AuthGuard]},
     {path:"new-flight", component:NewFlightComponent, canActivate:[AuthGuard]},

@@ -5,6 +5,7 @@ const aircraftController = require('./aircraftController');
 const flightController = require('./flightController');
 const shipmentController = require('./shipmentController');
 const airportController = require('./airportController');
+const newsController = require('./newsController');
 
 module.exports = {
     authController,
@@ -14,4 +15,5 @@ module.exports = {
     flightController,
     shipmentController,
     airportController,
+    newsController,
 }
