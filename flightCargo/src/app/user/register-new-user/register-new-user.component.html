@@ -1,8 +1,9 @@
-<div align="center" class="wrapper">
-<h1>Register New User</h1><br>
+
+<div class="wrapper">
+<div class="register-container">
+<h1>Sign Up</h1>
 <form #registerForm="ngForm" (ngSubmit)="handleRegisterForm()" [appPasswordMatches]="passControlNames">
-    <table>
-        <tr><td align="center" colspan="2">
+    
             @if (username?.touched) {
                 @if(username?.errors?.['required'])
                 {
@@ -65,13 +66,14 @@
                 }
             }
 
-        </td></tr>
-    <tr><td class="rightAlign">Username:</td><td><input [class]="(username?.touched && (username?.errors?.['required'] || username?.errors?.['minlength']))? 'inputError':''" type="text" name="username" placeholder="User Name" ngModel #username="ngModel" required minlength="5"/></td></tr>
-    <tr><td class="rightAlign">Password:</td><td><input [class]="(password?.touched && (password?.errors?.['required'] || password?.errors?.['minlength']) || registerForm?.errors?.['matchPasswordsValidator'])? 'inputError':''" type="password" name="password" placeholder="Password" ngModel #password="ngModel" required minlength="5"/></td></tr>
-    <tr><td class="rightAlign">Retype Password:</td><td><input [class]="(retypePassword?.touched && (retypePassword?.errors?.['required'] || retypePassword?.errors?.['minlength']) || registerForm?.errors?.['matchPasswordsValidator'])? 'inputError':''" type="password" name="retypePassword" placeholder="RetypePassword" ngModel #retypePassword="ngModel" required minlength="5"/></td></tr>
-    <tr><td class="rightAlign">E-mail:</td><td><input [class]="(email?.touched && (email?.errors?.['required']) || email?.errors?.['emailValidator'])? 'inputError':''" type="text" name="email" placeholder="john.doe@mail.bg" ngModel #email="ngModel" required  appEmail/></td></tr>
-    <tr><td class="rightAlign">Phone:</td><td><input type="text" name="phone" placeholder="+359123123123" ngModel #phone="ngModel" required /></td></tr>    
-    <tr><td colspan="2" align="center"><button [disabled]="registerForm.invalid">Register</button></td></tr>
-   </table>
+        
+    <label for="username"><b>Username:</b></label><input [class]="(username?.touched && (username?.errors?.['required'] || username?.errors?.['minlength']))? 'inputError':''" type="text" name="username" placeholder="User Name" ngModel #username="ngModel" required minlength="5"/>
+    <label for="password"><b>Password:</b></label><input [class]="(password?.touched && (password?.errors?.['required'] || password?.errors?.['minlength']) || registerForm?.errors?.['matchPasswordsValidator'])? 'inputError':''" type="password" name="password" placeholder="Password" ngModel #password="ngModel" required minlength="5"/>
+    <label for="retypePassword">Retype Password:</label><input [class]="(retypePassword?.touched && (retypePassword?.errors?.['required'] || retypePassword?.errors?.['minlength']) || registerForm?.errors?.['matchPasswordsValidator'])? 'inputError':''" type="password" name="retypePassword" placeholder="RetypePassword" ngModel #retypePassword="ngModel" required minlength="5"/>
+    <label for="email">E-mail:</label><input [class]="(email?.touched && (email?.errors?.['required']) || email?.errors?.['emailValidator'])? 'inputError':''" type="text" name="email" placeholder="john.doe@mail.bg" ngModel #email="ngModel" required  appEmail/>
+    <label for="phone">Phone:</label><input type="text" name="phone" placeholder="+359123123123" ngModel #phone="ngModel" required />    
+    <button [disabled]="registerForm.invalid">Register</button>
+
 </form>
+</div>
 </div>
