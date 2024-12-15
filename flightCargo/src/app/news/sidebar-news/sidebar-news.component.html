@@ -2,6 +2,6 @@
     <h2>News</h2>
 
     @for (item of news; track $index) {
-        <p>{{item.caption}}</p>
+        <p><a [routerLink]="['/news/details', item._id]">{{item.caption}}</a></p>
     }
 </div>

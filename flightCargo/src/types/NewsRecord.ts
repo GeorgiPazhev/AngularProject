@@ -5,7 +5,7 @@ export interface NewsRecord
     _id: string;
     caption: string;
     abstract: string;
-    description: string;
+    content: string;
     likes: string[];
     comments: Comment[];
     created: Date;

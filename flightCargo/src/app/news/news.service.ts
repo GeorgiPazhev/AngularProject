@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { NewsRecord } from '../../types/NewsRecord';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

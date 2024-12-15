@@ -1,5 +1,5 @@
 @for (item of news; track $index) 
 {
-    <h2>{{item.caption}}</h2>
+    <h2><a [routerLink]="['/news/details', item._id]">{{item.caption}}</a></h2>
     <p>{{item.abstract}}</p>
 }
