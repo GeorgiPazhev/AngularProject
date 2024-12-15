@@ -1,6 +1,6 @@
-<div class="wrapper" align="center">
-    <h1>Log in</h1><br>
-<form #loginForm="ngForm" (ngSubmit)="handleLoginForm()">
+<div class="login-container" align="center">
+    <h2>Log in</h2><br>
+<form #loginForm="ngForm" (ngSubmit)="handleLoginForm()" class="login">
     <table>
         <tr><td colspan="2" align="center">
             @if(email?.touched)

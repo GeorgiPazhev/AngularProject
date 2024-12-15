@@ -2,7 +2,7 @@
 .text-wrapper
 {
     border-radius: 7px;
-    width: 80%;
+    width: 100%;
     font-family: 'Lucida Handwriting', cursive;
     background-color: rgb(255, 228, 196);
 }

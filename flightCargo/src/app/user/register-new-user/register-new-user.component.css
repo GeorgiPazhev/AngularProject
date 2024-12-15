@@ -5,6 +5,10 @@ table
     border-radius: 6px;
 }
 
+form{
+    float:none; 
+}
+
 input
 {
     text-align: center;
@@ -44,3 +48,4 @@ button
     text-align: center;
     border-radius: 7px;
 }
+

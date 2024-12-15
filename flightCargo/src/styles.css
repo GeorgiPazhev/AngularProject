@@ -1,1 +1,119 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    margin-top: 0px;	  
+    margin-bottom: 30px;
+    }
+
+  #container {
+    width: 750px;
+    margin: 0 auto;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    line-height: 1.6em;
+    color: #666666;
+    background-color: #FFFFFF;
+    }
+    
+  #container2 {
+    width: 746px;
+    margin: 0 auto;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    line-height: 1.6em;
+    color: #666666;
+    background-color: #FFFFFF;
+    border-bottom: 2px solid #2763A5;
+    }
+    
+    h1 {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        font-weight: normal;
+        font-size: 32px;
+        /*color: #6DA6E2;*/
+        color:white;
+        margin-bottom: 30px;
+        
+    }
+      
+  h2 {
+    color: #666666;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #FFFFFF;
+    }
+      
+  a {
+    color: #6DA6E2;
+    background-color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    }
+
+  a:hover {
+    background-color: #FFFFFF;
+    color: inherit;
+    font-weight: bold;
+    text-decoration: underline;
+    }
+
+/**************** images styles ****************/		
+  a img{
+    border: none;
+    }
+
+  img.left,img.center,img.right {
+    padding: 4px;
+    border: 1px solid #a0a0a0;
+    }
+
+  img.left {
+    float: left;
+    margin: 0 12px 5px 0;
+    }
+
+  img.center {
+    display: block;
+    margin: 0 auto 5px auto;
+    }
+
+  img.right {
+    float: right;
+    margin: 0 0 5px 12px;
+    }
+
+/**************** form styles ****************/
+form {
+    float:right;
+    font-size: 9px;
+    }
+      
+  input {
+    background-color: #FFFFFF;
+    color: #999999;
+    border: 1px solid #2763A5;
+    font-size: 11px;
+    padding: 3px;
+    }
+      
+  .button {
+    padding: 2px;
+    background-color: #6DA6E2;
+    color: #FFFFFF;
+    border: 1px solid #2763A5;
+    font-size: 11px;
+    }
+
+    /**************** content styles ****************/
+	#content {
+        width: 520px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 10px;
+        float: left;
+        }
+          
+      #content p {
+        padding-bottom: 10px;
+        border-bottom: 1px solid #DDDDDD;
+        }
+        
+  

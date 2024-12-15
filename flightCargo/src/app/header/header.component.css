@@ -1,28 +1,24 @@
-.wrapper
+/**************** header styles ****************/
+#header 
 {
-    width: 100%;
-    background-color: gainsboro;
-    height: 60px;
+    width: 750px;
+    border: 0px
+    padding-bottom: 10px;
+    padding-top: 10px;
+    clear: both;
 }
 
-form
-{
-    display:block;
-    position: relative;
-    margin-left: 10px;
-    margin-right: 0;
-    align-items: right;
+#header p { 
+    margin-top: -20px;
+    margin-left: 30px;
+    color: #999999;
 }
 
-img
-{
-    display:inline;
-    position: absolute;
-    margin-left: 0;
-    height: 60px;
-    max-width: 60px;
-}
-
-h5{
-    color:#1a4ba7;
+h1 {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 32px;
+    color: #6DA6E2;
+    margin-bottom: 30px;
+    background-color: #FFFFFF;
 }
