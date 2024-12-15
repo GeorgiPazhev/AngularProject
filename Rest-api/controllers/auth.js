@@ -15,7 +15,7 @@ const removePassword = (data) => {
 function register(req, res, next) {
     const { tel, email, username, password, repeatPassword } = req.body;
 
-    return userModel.create({ tel, email, username, password })
+    return userModel.create({ tel, email, username, password, roles:['6755a703b68f6a2e396d297b'] })
         .then((createdUser) => {
             createdUser = bsonToJson(createdUser);
             createdUser = removePassword(createdUser);
@@ -88,6 +88,7 @@ function getProfileInfo(req, res, next) {
     const { _id: userId } = req.user;
 
     userModel.findOne({ _id: userId }, { password: 0, __v: 0 }) //finding by Id and returning without password and __v
+        .populate('roles')
         .then(user => { res.status(200).json(user) })
         .catch(next);
 }

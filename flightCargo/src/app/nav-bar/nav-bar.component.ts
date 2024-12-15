@@ -17,6 +17,11 @@ export class NavBarComponent {
        return this.userService.isLogged;
     }
 
+    get isUserAdmin()
+    {
+      return this.userService.isUserAdmin;
+    }
+
     get userName():string
     {
       return this.userService.user!.username;

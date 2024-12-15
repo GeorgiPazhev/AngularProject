@@ -6,8 +6,11 @@
       @if (isUserLoggedIn)
       {
         <li><a routerLink="/flights"><span>Planned flights</span></a></li>
-        <li><a routerLink="/new-flight"><span>Create new flight</span></a></li>
-        <li><a routerLink="/news/create"><span>Create news record</span></a></li>
+        @if (isUserAdmin)
+        {
+          <li><a routerLink="/new-flight"><span>Create new flight</span></a></li>
+          <li><a routerLink="/news/create"><span>Create news record</span></a></li>
+        }
         <li><a routerLink="/edit-profile"><span>Edit <b>{{userName}}</b> profile</span></a></li>
         <li><a (click)="logout()"><span>Log out</span></a></li>
       }

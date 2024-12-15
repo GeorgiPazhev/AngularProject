@@ -13,6 +13,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { NewsListComponent } from './news/news-list/news-list.component';
 import { NewsDetailsComponent } from './news/news-details/news-details.component';
 import { CreateNewsRecordComponent } from './news/create-news-record/create-news-record.component';
+import { IsAdminGuard } from './guards/isAdmin.guard';
 
 export const routes: Routes = [
     {path:"", redirectTo:"/home", pathMatch:"full"},
@@ -44,10 +45,10 @@ export const routes: Routes = [
       children:[
         {path:'', component:NewsListComponent},
         {path:'details/:id', component:NewsDetailsComponent},
-        {path:'create', component:CreateNewsRecordComponent, canActivate: [AuthGuard]}
+        {path:'create', component:CreateNewsRecordComponent, canActivate: [AuthGuard, IsAdminGuard]}
       ]
     },
     {path:"edit-profile", component:EditProfileComponent, canActivate:[AuthGuard]},
-    {path:"new-flight", component:NewFlightComponent, canActivate:[AuthGuard]},
+    {path:"new-flight", component:NewFlightComponent, canActivate:[AuthGuard, IsAdminGuard]},
     {path:"**", component:PageNotFoundComponent}
 ];

@@ -24,6 +24,11 @@ export class UserService {
     return !!this.user;
   }
 
+   get isUserAdmin():boolean
+   {
+    return this.isLogged && this.user!.roles.includes('6755a6ec602e232ec26c8afe');
+   }
+
   getUserId():string|undefined
   { 
     return this.user?._id;
