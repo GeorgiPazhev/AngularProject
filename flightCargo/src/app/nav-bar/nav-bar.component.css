@@ -1,7 +1,8 @@
 /**************** menu styles ****************/
 #tabs10 {
 	float:left;
-	width:750px;
+	/*width:750px;*/
+	width: 100%;
 	font-size:93%;
 	padding-bottom: 1px;
 	border-bottom:4px solid #2763A5;

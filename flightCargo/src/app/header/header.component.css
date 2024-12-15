@@ -1,8 +1,9 @@
 /**************** header styles ****************/
 #header 
 {
-    width: 750px;
-    border: 0px
+    /*width: 750px;*/
+    width: 100%;
+    border: 0px;
     padding-bottom: 10px;
     padding-top: 10px;
     clear: both;

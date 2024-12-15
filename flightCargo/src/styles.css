@@ -4,7 +4,8 @@ body {
     }
 
   #container {
-    width: 750px;
+    /*width: 750px; */
+    width: 100%;
     margin: 0 auto;
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 11px;
@@ -14,7 +15,8 @@ body {
     }
     
   #container2 {
-    width: 746px;
+    /*width: 746px;*/
+    width: 100%;
     margin: 0 auto;
     font-family: Verdana, Arial, Helvetica, sans-serif;
     font-size: 11px;
@@ -104,7 +106,8 @@ form {
 
     /**************** content styles ****************/
 	#content {
-        width: 520px;
+        /*width: 520px;*/
+        width:80%;
         padding-left: 10px;
         padding-right: 10px;
         padding-top: 10px;
