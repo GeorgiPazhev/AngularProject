@@ -7,6 +7,11 @@
     background-color: rgb(255, 228, 196);
 }
 
+.text-wrapper p
+{
+    border-bottom: 0px solid #DDDDDD !important;
+}
+
 .home-wrapper
 {
     background-color: rgb(255, 228, 196);
