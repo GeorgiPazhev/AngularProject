@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { NewsRecord } from '../../types/NewsRecord';
-import { BehaviorSubject } from 'rxjs';
+import { NewsRecord, NewsRecordForUpdate } from '../../types/NewsRecord';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +10,7 @@ import { BehaviorSubject } from 'rxjs';
 export class NewsService {
 
   constructor(private httpClient:HttpClient, private router: Router) {   }
+  
 
   getNews(limit:Number|null)
   {
@@ -18,8 +19,8 @@ export class NewsService {
     {
       url = url.concat(`?limit=${limit}`);
     }
-
-    return this.httpClient.get<NewsRecord[]>(url);
+     
+    return this.httpClient.get<NewsRecord[]>(url);;
   }
 
   createNewsRecord(caption:string, abstract: string, content:string)
@@ -30,6 +31,21 @@ export class NewsService {
   getNewsRecord(id:string)
   {
       return this.httpClient.get<NewsRecord>(`/api/news/details/${id}`);
+  }
+
+  getNewsRecordForUpdate(id:string)
+  {
+      return this.httpClient.get<NewsRecordForUpdate>(`/api/news/details/${id}`);
+  }
+
+  updateNewsRecord(id:string, caption:string, abstract: string, content:string)
+  {
+      return this.httpClient.put(`/api/news/${id}`, {caption, abstract, content});
+  }
+
+  removeNewsRecord(id:string)
+  {
+    return this.httpClient.delete(`/api/news/${id}`);
   }
 
 }

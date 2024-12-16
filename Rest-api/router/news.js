@@ -9,6 +9,7 @@ router.get('/:limit',  newsController.getLatestNews);
 router.get('/', newsController.getNews);
 router.get('/details/:id', newsController.getNewsDetails);
 router.post('/', auth(), newsController.createNewsRecord);
+router.put('/:newsId', auth(), newsController.updateNewsRecord);
 router.delete('/:newsId', auth(), newsController.deleteRecord);
 
 module.exports = router

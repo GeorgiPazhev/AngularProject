@@ -45,7 +45,8 @@ export const routes: Routes = [
       children:[
         {path:'', component:NewsListComponent},
         {path:'details/:id', component:NewsDetailsComponent},
-        {path:'create', component:CreateNewsRecordComponent, canActivate: [AuthGuard, IsAdminGuard]}
+        {path:'create', component:CreateNewsRecordComponent, canActivate: [AuthGuard, IsAdminGuard]},
+        {path:'update/:id', component:CreateNewsRecordComponent, canActivate: [AuthGuard, IsAdminGuard]},
       ]
     },
     {path:"edit-profile", component:EditProfileComponent, canActivate:[AuthGuard]},

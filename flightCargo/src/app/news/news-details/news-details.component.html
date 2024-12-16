@@ -1,5 +1,9 @@
 <h2>{{newsRecord?.caption}}</h2>
+@if (isUserAdmin)
+{
+    <p align="center"> <a [routerLink] = "['/news/update', newsRecord?._id]">Edit</a></p>
+}
+
 <div id="news-details-content">
 <p>{{newsRecord?.content}}</p>
-<p>Test</p>
 </div>

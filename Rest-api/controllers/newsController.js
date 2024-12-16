@@ -38,6 +38,17 @@ function createNewsRecord(req, res, next)
 
 }
 
+function updateNewsRecord(req, res, next)
+{
+    const {newsId} = req.params;
+    const {caption, abstract, content} = req.body;
+
+    newsrecordModel.findOneAndUpdate({_id:newsId}, {caption, abstract, content, updatedAt:Date()}, {new:true})
+    .then(updatedRecord => res.status(200).json(updatedRecord))
+    .catch(next);
+
+}
+
 function getNewsDetails(req, res, next)
 {
     const {id} = req.params;
@@ -60,5 +71,6 @@ module.exports = {
     createNewsRecord,
     getNews,
     getNewsDetails,
+    updateNewsRecord,
     deleteRecord,
 }
