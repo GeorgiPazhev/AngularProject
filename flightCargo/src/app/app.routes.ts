@@ -14,6 +14,7 @@ import { NewsListComponent } from './news/news-list/news-list.component';
 import { NewsDetailsComponent } from './news/news-details/news-details.component';
 import { CreateNewsRecordComponent } from './news/create-news-record/create-news-record.component';
 import { IsAdminGuard } from './guards/isAdmin.guard';
+import { ErrorComponent } from './error/error.component';
 
 export const routes: Routes = [
     {path:"", redirectTo:"/home", pathMatch:"full"},
@@ -51,5 +52,6 @@ export const routes: Routes = [
     },
     {path:"edit-profile", component:EditProfileComponent, canActivate:[AuthGuard]},
     {path:"new-flight", component:NewFlightComponent, canActivate:[AuthGuard, IsAdminGuard]},
+    {path:"error", component:ErrorComponent},
     {path:"**", component:PageNotFoundComponent}
 ];

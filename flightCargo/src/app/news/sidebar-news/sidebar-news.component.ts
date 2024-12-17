@@ -1,4 +1,4 @@
-import { AfterContentChecked, Component } from '@angular/core';
+import { AfterContentChecked, Component, OnInit } from '@angular/core';
 import { NewsRecord } from '../../../types/NewsRecord';
 import { NewsService } from '../news.service';
 import { RouterLink } from '@angular/router';
@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './sidebar-news.component.html',
   styleUrl: './sidebar-news.component.css'
 })
-export class SidebarNewsComponent implements AfterContentChecked{
+export class SidebarNewsComponent implements OnInit{
 
   news:NewsRecord[] = [];
   
@@ -18,8 +18,8 @@ export class SidebarNewsComponent implements AfterContentChecked{
   {
 
   }
-  
-  ngAfterContentChecked(): void {
+
+  ngOnInit(): void {
     this.newsService.getNews(5).subscribe((newsList) => {this.news=newsList; console.log(newsList)});
   }
   
