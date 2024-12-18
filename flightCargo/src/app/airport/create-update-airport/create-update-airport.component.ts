@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AirportService } from '../airport.service';
 import { numberValidator } from '../../validators/numberValidator';
@@ -7,7 +7,7 @@ import { numberValidator } from '../../validators/numberValidator';
 @Component({
   selector: 'app-create-update-airport',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule],
   templateUrl: './create-update-airport.component.html',
   styleUrl: './create-update-airport.component.css'
 })

@@ -1,1 +1,20 @@
-<p>create-update-airport works!</p>
+<div class="new-record-container">
+    <form [formGroup]="form" (ngSubmit)="createOrUpdateAirport()">
+        
+        <label for="name">Airport name: </label>
+        <input type="text" id="name" name="name" formControlName="name">
+        <label for="country">Country: </label>
+        <input type="text" id="country" name="country" formControlName="country">
+        <label for="province">Province: </label>
+        <input type="text" id="province" name="province" formControlName="province">
+        <label for="settlement">Settlement: </label>
+        <input type="text" id="settlement" name="settlement" formControlName="settlement">
+        <label for="street">Street: </label>
+        <input type="text" id="street" name="street" formControlName="street">
+        <label for="lat">Latitude: </label>
+        <input type="text" id="lat" name="lat" formControlName="lat">
+        <label for="lng">Longtitude: </label>
+        <input type="text" id="lng" name="lng" formControlName="lng">
+        <button type="submit">Submit airport</button>
+    </form>
+    </div>

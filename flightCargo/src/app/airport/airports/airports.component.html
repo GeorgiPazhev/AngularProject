@@ -1,14 +1,13 @@
 @for (item of airports; track $index) {
-    <p>
         Airport name: {{item.name}}<br>
         Airport Address: <br>
         <ul>
-        <li> Country: {{item.address.country}}</li>
-        <li> Province: {{item.address.province}}</li>
-        <li> Settlement: {{item.address.settlement}}</li> 
-        <li> Street: {{item.address.name}}</li>
+            <li> Country: {{item.address.country}}</li>
+            <li> Province: {{item.address.province}}</li>
+            <li> Settlement: {{item.address.settlement}}</li> 
+            <li> Street: {{item.address.name}}</li>
         </ul>
-    </p>
+    <p></p>
     <p align="center">
         <a [routerLink]="['airports/update', item._id]">Edit</a>
     </p>

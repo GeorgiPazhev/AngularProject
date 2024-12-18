@@ -1,0 +1,13 @@
+@for (item of profiles; track $index) {
+    <p>Username: {{item.username}} <br> Email: {{item.email}}</p>
+    <p>
+        @if(item.roles.includes('6755a6ec602e232ec26c8afe'))
+        {
+            <a (click)="makeOrRemoveUserAdmin(item._id, true)">Remove Admin Privileges</a>
+        }
+        @else 
+        {
+            <a (click)="makeOrRemoveUserAdmin(item._id, false)">Add Admin Privileges</a>
+        }
+    </p>
+}

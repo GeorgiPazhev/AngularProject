@@ -74,4 +74,14 @@ export class UserService {
       })
       .pipe(tap((user) => this.user$$.next(user)));
   }
+
+  listProfiles()
+  {
+    return this.client.get<UserForAuth[]>("/api/profiles");
+  }
+
+  addOrRemoveUserAdminPrivileges(id:string, removeAdmin:boolean)
+  {
+    return (removeAdmin) ? this.client.put(`/api/profiles/remove-admin/${id}`, {}) : this.client.put(`/api/profiles/create-admin/${id}`, {});
+  }
 }

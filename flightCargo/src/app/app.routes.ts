@@ -15,6 +15,10 @@ import { NewsDetailsComponent } from './news/news-details/news-details.component
 import { CreateNewsRecordComponent } from './news/create-news-record/create-news-record.component';
 import { IsAdminGuard } from './guards/isAdmin.guard';
 import { ErrorComponent } from './error/error.component';
+import { CreateUpdateAircraftComponent } from './aircraft/create-update-aircraft/create-update-aircraft.component';
+import { AirportsComponent } from './airport/airports/airports.component';
+import { CreateUpdateAirportComponent } from './airport/create-update-airport/create-update-airport.component';
+import { UserListComponent } from './user/user-list/user-list.component';
 
 export const routes: Routes = [
     {path:"", redirectTo:"/home", pathMatch:"full"},
@@ -22,7 +26,22 @@ export const routes: Routes = [
     {path:"flights", component:FlightsComponent, canActivate:[AuthGuard]},
     {path:"login", component:LoginComponent},
     {path:"register", component:RegisterNewUserComponent},
-    {path:"planes", component:PlanesComponent},
+    {
+      path:'airports',
+      children:[
+        {path:'', component:AirportsComponent, canActivate:[AuthGuard, IsAdminGuard]},
+        {path:'update/:id', component:CreateUpdateAirportComponent, canActivate:[AuthGuard, IsAdminGuard]},
+        {path:'create', component:CreateUpdateAirportComponent, canActivate:[AuthGuard, IsAdminGuard]},
+      ]
+    },
+    {
+      path:"planes", 
+      children:[
+        {path:'', component:PlanesComponent },
+        {path:'update/:id', component:CreateUpdateAircraftComponent, canActivate:[AuthGuard, IsAdminGuard]},
+        {path:'create', component:CreateUpdateAircraftComponent, canActivate:[AuthGuard, IsAdminGuard]}
+      ]
+      },
     {
         path:"shipments",
         children:[
@@ -50,6 +69,7 @@ export const routes: Routes = [
         {path:'update/:id', component:CreateNewsRecordComponent, canActivate: [AuthGuard, IsAdminGuard]},
       ]
     },
+    {path:'/user-profiles', component:UserListComponent, canActivate:[AuthGuard, IsAdminGuard]},
     {path:"edit-profile", component:EditProfileComponent, canActivate:[AuthGuard]},
     {path:"new-flight", component:NewFlightComponent, canActivate:[AuthGuard, IsAdminGuard]},
     {path:"error", component:ErrorComponent},
