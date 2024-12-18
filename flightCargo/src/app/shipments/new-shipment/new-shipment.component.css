@@ -4,6 +4,11 @@ fieldset
     background-color: rgb(255, 228, 196);;
 }
 
+form
+{
+    float: none;
+}
+
 .new-shipment-wrapper
 {
     background-color: rgb(255, 228, 196);
@@ -11,4 +16,6 @@ fieldset
     
     height: calc(100vh - 200px);
 }
+
+
 

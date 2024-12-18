@@ -4,6 +4,11 @@ fieldset
     background-color: rgb(255, 228, 196);;
 }
 
+form
+{
+    float: none;
+}
+
 .new-flight-wrapper
 {
     background-color: rgb(255, 228, 196);

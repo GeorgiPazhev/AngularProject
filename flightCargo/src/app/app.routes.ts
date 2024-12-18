@@ -69,7 +69,7 @@ export const routes: Routes = [
         {path:'update/:id', component:CreateNewsRecordComponent, canActivate: [AuthGuard, IsAdminGuard]},
       ]
     },
-    {path:'/user-profiles', component:UserListComponent, canActivate:[AuthGuard, IsAdminGuard]},
+    {path:'user-profiles', component:UserListComponent, canActivate:[AuthGuard, IsAdminGuard]},
     {path:"edit-profile", component:EditProfileComponent, canActivate:[AuthGuard]},
     {path:"new-flight", component:NewFlightComponent, canActivate:[AuthGuard, IsAdminGuard]},
     {path:"error", component:ErrorComponent},
