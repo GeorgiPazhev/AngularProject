@@ -2,30 +2,39 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { NewsRecord, NewsRecordForUpdate } from '../../types/NewsRecord';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NewsService {
 
-  constructor(private httpClient:HttpClient, private router: Router) {   }
+  public limitedNews$$ = new BehaviorSubject<NewsRecord[]|null>(null);
+  public limitedNews$ = this.limitedNews$$.asObservable();
   
 
-  getNews(limit:Number|null)
+  constructor(private httpClient:HttpClient, private router: Router) 
+  {   
+      
+  }
+  
+
+  getLastNews(limit:Number)
   {
-    let url:string = `/api/news`;
-    if (limit != null)
-    {
-      url = url.concat(`?limit=${limit}`);
-    }
-     
-    return this.httpClient.get<NewsRecord[]>(url);;
+    let url:string = `/api/news/${limit}`;
+    
+    return this.httpClient.get<NewsRecord[]>(url).pipe(tap((records)=>this.limitedNews$$.next(records)));
+  }
+
+  getNews()
+  {
+    return this.httpClient.get<NewsRecord[]>("/api/news");
   }
 
   createNewsRecord(caption:string, abstract: string, content:string)
   {
-    return this.httpClient.post("/api/news", {caption, abstract, content});
+    return this.httpClient.post<NewsRecord>("/api/news", {caption, abstract, content})
+                          .pipe(tap(()=>this.getLastNews(5).subscribe(()=>{})));
   }
 
   getNewsRecord(id:string)
@@ -40,12 +49,13 @@ export class NewsService {
 
   updateNewsRecord(id:string, caption:string, abstract: string, content:string)
   {
-      return this.httpClient.put(`/api/news/${id}`, {caption, abstract, content});
+      return this.httpClient.put(`/api/news/${id}`, {caption, abstract, content})
+      .pipe(tap(()=>this.getLastNews(5).subscribe(()=>{})));
   }
 
   removeNewsRecord(id:string)
   {
-    return this.httpClient.delete(`/api/news/${id}`);
+    return this.httpClient.delete(`/api/news/${id}`).pipe(tap(()=>this.getLastNews(5).subscribe(()=>{})));
   }
 
 }

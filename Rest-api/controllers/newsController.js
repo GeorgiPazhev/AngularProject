@@ -62,7 +62,7 @@ function deleteRecord(req, res, next)
 {
     const {newsId} = req.params;
     newsrecordModel.findOneAndDelete({_id:newsId})
-    .then(deletedNews => res.status(200))
+    .then(deletedNews => res.status(200).json(deletedNews))
     .catch(next);
 }
 

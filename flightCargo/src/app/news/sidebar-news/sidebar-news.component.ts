@@ -1,4 +1,4 @@
-import { AfterContentChecked, Component, OnInit } from '@angular/core';
+import { AfterContentChecked, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { NewsRecord } from '../../../types/NewsRecord';
 import { NewsService } from '../news.service';
 import { RouterLink } from '@angular/router';
@@ -10,17 +10,24 @@ import { RouterLink } from '@angular/router';
   templateUrl: './sidebar-news.component.html',
   styleUrl: './sidebar-news.component.css'
 })
-export class SidebarNewsComponent implements OnInit{
+export class SidebarNewsComponent implements OnInit, OnDestroy{
 
-  news:NewsRecord[] = [];
+  @Input('') news:NewsRecord[] = [];
   
   constructor(private newsService:NewsService)
   {
 
   }
 
-  ngOnInit(): void {
-    this.newsService.getNews(5).subscribe((newsList) => {this.news=newsList; console.log(newsList)});
+  ngOnInit(): void 
+  {
+    console.log("Sidebar OnInit");
+    this.newsService.limitedNews$$.subscribe((newsList) => {console.log("SideBarNews sub ran"); this.news=newsList!});
+    this.newsService.getLastNews(5).subscribe((records)=>{this.news=records;});
+  }
+
+  ngOnDestroy(): void {
+    //this.newsService.limitedNews$$.unsubscribe();
   }
   
 }

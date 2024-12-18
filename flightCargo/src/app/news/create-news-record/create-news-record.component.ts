@@ -3,6 +3,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { NewsService } from '../news.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NewsRecord, NewsRecordForUpdate } from '../../../types/NewsRecord';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-create-news-record',
@@ -46,11 +47,16 @@ export class CreateNewsRecordComponent implements OnInit{
     {
         if(this.newsRecocordId != null)
         {
-          this.newsService.updateNewsRecord(this.newsRecocordId, caption, abstract, content).subscribe(()=> this.router.navigate(["/news", "details", this.newsRecocordId]));
+          this.newsService.updateNewsRecord(this.newsRecocordId, caption, abstract, content).subscribe(()=> {
+            //this.newsService.getNews(5).pipe(tap((records)=>this.newsService.limitedNews$$.next(records))).subscribe(()=>{});
+            this.router.navigate(["/news", "details", this.newsRecocordId]);});
         }
         else
         {
-            this.newsService.createNewsRecord(caption, abstract, content).subscribe(() => this.router.navigate(["/news"]));
+            this.newsService.createNewsRecord(caption, abstract, content).subscribe(() => {
+              //this.newsService.getNews(5).pipe(tap((records)=>this.newsService.limitedNews$$.next(records))).subscribe(()=>{});
+              this.router.navigate(["/news"]);
+            });
         }
     }
 
