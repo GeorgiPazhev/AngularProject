@@ -7,5 +7,10 @@
     <table>
         <tr><td>Payload:</td><td>{{currentAircraft?.payload}} kg</td></tr>
        
-    <tr><td>Volume:</td><td>{{currentAircraft?.volume}} m<sup>3</sup></td></tr></table></div>
+    <tr><td>Volume:</td><td>{{currentAircraft?.volume}} m<sup>3</sup></td></tr>
+    @if(isUserAdmin)
+    {
+        <tr><td colspan="2"><a [routerLink]="['/planes/update', currentAircraft?._id]">Edit</a> | <a (click)="deleteAircraft(currentAircraft?._id!)">Retire</a></td></tr>
+    }
+</table></div>
 </div>

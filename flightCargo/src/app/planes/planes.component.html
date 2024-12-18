@@ -1,6 +1,13 @@
 <div align="center" class="planes-wrapper">
     <h2>Our Aircraft</h2>
 @for (plane of planes; track $index) {
-    <app-aircraft [aircraft]="plane"></app-aircraft>
+    @if(!isUserAdmin && !plane.retired)
+    {
+        <app-aircraft [aircraft]="plane" (retired)="setReload()"></app-aircraft>
+    }
+    @else if (isUserAdmin) {
+        <app-aircraft [aircraft]="plane" (retired)="setReload()"></app-aircraft>
+    }
+    
 }
 </div>

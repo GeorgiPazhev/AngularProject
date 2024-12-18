@@ -1,0 +1,16 @@
+<div class="new-record-container">
+    <form [formGroup]="form" (ngSubmit)="createOrUpdateAircraft()">
+        
+        <label for="pictureUrl">Picture URL: </label>
+        <input type="text" id="pictureUrl" name="pictureUrl" formControlName="pictureUrl">
+        <label for="mark">Mark: </label>
+        <input type="text" id="mark" name="mark" formControlName="mark">
+        <label for="model">Model: </label>
+        <input type="text" id="model" name="model" formControlName="model">
+        <label for="payload">Payload: </label>
+        <input type="text" id="payload" name="payload" formControlName="payload">
+        <label for="volume">Volume: </label>
+        <input type="text" id="volume" name="volume" formControlName="volume">
+        <button type="submit">Submit aircraft</button>
+    </form>
+    </div>

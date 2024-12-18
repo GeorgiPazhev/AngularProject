@@ -9,6 +9,16 @@ function getAircraft(req, res, next) {
         .catch(next);
 }
 
+function getSingleAircraft(req, res, next) {
+    
+    const{id} = req.params;
+    aircraftModel.findOne({_id:id})
+        .then(aircraft => {
+            res.status(200).json(aircraft)
+        })
+        .catch(next);
+}
+
 function createNewAircraft(req, res, next)
 {
     const {pictureUrl, mark, model, payload, volume} =req.body;
@@ -36,6 +46,7 @@ function deleteAircraft(req, res, next)
 
 module.exports = {
     getAircraft,
+    getSingleAircraft,
     updateAircraft,
     createNewAircraft,
     deleteAircraft,

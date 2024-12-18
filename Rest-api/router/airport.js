@@ -6,6 +6,7 @@ const { airportController } = require('../controllers');
 // middleware that is specific to this router
 
 router.get('/', airportController.getAirport);
+router.get('/:id', airportController.getSingleAirport);
 router.post('/',auth(), airportController.createAirport);
 router.put('/:airportId', auth(), airportController.updateAirport);
 

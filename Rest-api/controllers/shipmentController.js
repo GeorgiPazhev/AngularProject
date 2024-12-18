@@ -45,7 +45,7 @@ function updateShipment(req, res, next)
         flightModel.updateOne({ _id: flightId }, { $push: { shipments: shipmentId} }),
         flightModel.updateOne({ _id: previousFlightId }, { $pull: { shipments: shipmentId} })
     ])
-    .then(([updatedShipment, _, _])=>{
+    .then(([updatedShipment, changedFlight, _])=>{
         if(updatedShipment)
         {
             res.status(200).json(updatedShipment);

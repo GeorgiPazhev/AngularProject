@@ -6,4 +6,5 @@ export interface Aircraft
     model:string;
     volume:number;
     payload:number;
+    retired:boolean;
 }

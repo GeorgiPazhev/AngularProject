@@ -9,6 +9,15 @@ function getAirport(req, res, next) {
         .catch(next);
 }
 
+function getSingleAirport(req, res, next) {
+    const{id} = req.params;
+    airportModel.findOne({_id:id})
+        .then(airport => {
+            res.status(200).json(airport)
+        })
+        .catch(next);
+}
+
 function createAirport(req, res, next)
 {
     const {name, country, province, settlement, street, lat, lon} = req.body;
@@ -54,6 +63,7 @@ function updateAirport(req, res, next)
 
 module.exports = {
     getAirport,
+    getSingleAirport,
     createAirport,
     updateAirport,
 }
