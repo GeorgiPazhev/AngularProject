@@ -35,6 +35,11 @@ const flightSchema = new mongoose.Schema(
         type: ObjectId,
         ref: "Airport",
         required:true
+    },
+    status:
+    {
+        type:String,
+        required:true
     }
      }, { _id: true });
 

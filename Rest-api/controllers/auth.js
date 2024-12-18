@@ -5,6 +5,7 @@ const {
 
 const utils = require('../utils');
 const { authCookieName } = require('../app-config');
+const { all } = require('../router');
 
 const bsonToJson = (data) => { return JSON.parse(JSON.stringify(data)) };
 const removePassword = (data) => {
@@ -93,6 +94,13 @@ function getProfileInfo(req, res, next) {
         .catch(next);
 }
 
+function getAllProfiles(req, res, next)
+{
+    userModel.find()
+    .then((allUsers) => res.status(200).json(allUsers))
+    .catch(next);
+}
+
 function editProfileInfo(req, res, next) {
     const { _id: userId } = req.user;
     const { tel, username, email } = req.body;
@@ -102,10 +110,29 @@ function editProfileInfo(req, res, next) {
         .catch(next);
 }
 
+function makeUserAdmin(req, res, next)
+{
+    const{userId} = req.params;
+    userModel.findOneAndUpdate({_id:userId}, { $push: { roles: '6755a6ec602e232ec26c8afe' } })
+             .then(x => { res.status(200).json(x) })
+             .catch(next);
+}
+
+function removeAdminPrivilege(req, res, next)
+{
+    const{userId} = req.params;
+    userModel.findOneAndUpdate({_id:userId}, { $pull: { roles: '6755a6ec602e232ec26c8afe' } })
+             .then(x => { res.status(200).json(x) })
+             .catch(next);
+}
+
 module.exports = {
     login,
     register,
     logout,
     getProfileInfo,
     editProfileInfo,
+    getAllProfiles,
+    makeUserAdmin,
+    removeAdminPrivilege,
 }

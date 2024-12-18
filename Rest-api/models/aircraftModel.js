@@ -25,6 +25,11 @@ const aircraftSchema = new mongoose.Schema(
     {
         type: Number,
         required:true
+    },
+    retired:
+    {
+        type: Boolean,
+        required:true
     }
      }, { _id: true });
 

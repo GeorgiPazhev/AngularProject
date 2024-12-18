@@ -20,6 +20,14 @@ const addressSchema = new mongoose.Schema(
     {
         type: String,
         required:true
+    },
+    lat:
+    {
+        type:String
+    },
+    lng:
+    {
+        type: String
     }
      }, { _id: true });
 

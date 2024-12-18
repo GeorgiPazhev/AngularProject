@@ -34,6 +34,35 @@ function createNewShipment(req, res, next)
            .catch(next);
 }
 
+function updateShipment(req, res, next)
+{
+    const {shipmentId} = req.params;
+    const { width, height, edge, weight, flightId, previousFlightId} = req.body;
+    const { _id: userId } = req.user;
+    const price = weight * 3;
+    Promise.all([
+        shipmentModel.findOneAndUpdate({_id:shipmentId},{width, height, edge, weight, price, userId, flightId}),
+        flightModel.updateOne({ _id: flightId }, { $push: { shipments: shipmentId} }),
+        flightModel.updateOne({ _id: previousFlightId }, { $pull: { shipments: shipmentId} })
+    ])
+    .then(([updatedShipment, _, _])=>{
+        if(updatedShipment)
+        {
+            res.status(200).json(updatedShipment);
+        }
+        else
+        {
+            res.status(401).json({ message: `Edit not allowed!` });
+        }
+    })
+    .catch(next);
+    
+
+    shipmentModel.findOneAndUpdate({width, height, edge, weight, price, userId, flightId})
+           .then(shipment => {flightModel.updateOne({ _id: flightId }, { $push: { shipments: shipment._id} }).then((updatedShipment) => res.status(200).json(updatedShipment))})
+           .catch(next);
+}
+
 function removeShipment(req, res, next)
 {
     const { flightId, shipmentId } = req.params;
@@ -55,5 +84,6 @@ module.exports = {
     getAllShipments,
     getAllShipmentsByUserAndFlight,
     createNewShipment,
+    updateShipment,
     removeShipment,
 }
