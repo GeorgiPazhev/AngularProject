@@ -23,9 +23,16 @@ import { UserListComponent } from './user/user-list/user-list.component';
 export const routes: Routes = [
     {path:"", redirectTo:"/home", pathMatch:"full"},
     {path:"home", component:HomeComponent},
-    {path:"flights", component:FlightsComponent, canActivate:[AuthGuard]},
     {path:"login", component:LoginComponent},
     {path:"register", component:RegisterNewUserComponent},
+    {
+      path:"flights", 
+      children:[
+       { path:'', component:FlightsComponent},
+       //{ path:'flight-details/:id', component:FlightDetailsComponent},
+       { path:'update/:id', component:NewFlightComponent, canActivate:[AuthGuard, IsAdminGuard]}
+      ]
+    },
     {
       path:'airports',
       children:[

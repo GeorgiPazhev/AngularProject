@@ -11,4 +11,5 @@ export interface Flight
     arrivalDate:Date;
     departureAirport:Airport; 
     arrivalAirport:Airport; 
+    status:string;
 }

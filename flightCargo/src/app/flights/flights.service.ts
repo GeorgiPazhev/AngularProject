@@ -8,8 +8,8 @@ import { Airport } from '../../types/Airport';
 })
 export class FlightsService {
   
-  createNewFlight(departureAirport:string, arrivalAirport:string, arrivalDate:Date, departureDate:Date, aircraft:string) {
-    return this.httpClient.post("/api/flights", {departureAirport, arrivalAirport, arrivalDate, departureDate, aircraft});
+  createNewFlight(departureAirport:string, arrivalAirport:string, arrivalDate:Date, departureDate:Date, aircraft:string, status:string) {
+    return this.httpClient.post("/api/flights", {departureAirport, arrivalAirport, arrivalDate, departureDate, aircraft, status});
   }
 
   constructor(private httpClient:HttpClient) { }
@@ -24,8 +24,9 @@ export class FlightsService {
       return this.httpClient.get<Flight>(`/api/flights/${id}`);
   }
 
-  getAirports()
+  updateFlight(departureAirport:string, arrivalAirport:string, arrivalDate:Date, departureDate:Date, aircraft:string, status:string, id:string)
   {
-    return this.httpClient.get<Airport[]>(`/api/airports`);
+    return this.httpClient.put(`/api/flights/${id}`, {departureAirport, arrivalAirport, arrivalDate, departureDate, aircraft, status});
   }
+
 }

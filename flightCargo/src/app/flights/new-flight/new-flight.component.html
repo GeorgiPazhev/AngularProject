@@ -55,7 +55,7 @@
         <div style="color:red"> The departure airport must be different than the arrival airport!</div>
     }
     
-    <form class="register" [formGroup]="form" (ngSubmit)="createNewFlight()">
+    <form class="register" [formGroup]="form" (ngSubmit)="createOrUpdateFlight()">
     <fieldset>
         <legend>Flight data:</legend>
       <label for="aircraft" align="right">Aircraft:</label>
@@ -80,6 +80,12 @@
       <input type="datetime-local" id="departureDate" name="departureDate" formControlName="departureDate"><br><br>
       <label for="arrivalDate" align="right">Arrival date:</label>
       <input type="datetime-local" id="arrivalDate" name="arrivalDate" formControlName="arrivalDate"><br><br>
+      <label for="status">Status:</label>
+      <select id="status" name="status" formControlName="status">
+        <option value="New">New</option>
+        <option value="Departed">Departed</option>
+        <option value="Cancelled">Cancelled</option>
+      </select><br><br>
       <button [disabled]="form.invalid">Create new flight</button>
     </fieldset>
     </form>

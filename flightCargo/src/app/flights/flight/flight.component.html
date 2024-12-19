@@ -3,11 +3,20 @@
 <table>
     <tr><td align="right">Aircraft:</td><td>{{singleFlight?.aircraft?.mark}} {{singleFlight?.aircraft?.model}}</td></tr>
     <tr><td align="right">Departure Airport:</td><td>{{singleFlight?.departureAirport?.name}}</td></tr>
-    <tr><td align="right">Departure date:</td><td>{{singleFlight?.departureDate | date: "YYYY-MM-dd hh:mm:ss"}}</td></tr>
+    <tr><td align="right">Departure date:</td><td>{{singleFlight?.departureDate | date: "YYYY-MM-dd HH:mm:ss":'GMT'}} GMT</td></tr>
     <tr><td align="right">Arrival Airport:</td><td>{{singleFlight?.arrivalAirport?.name}}</td></tr>
-    <tr><td align="right">Arrival date:</td><td>{{singleFlight?.arrivalDate | date: "YYYY-MM-dd hh:mm:ss"}}</td></tr>
+    <tr><td align="right">Arrival date:</td><td>{{singleFlight?.arrivalDate | date: "YYYY-MM-dd HH:mm:ss" : 'GMT'}} GMT</td></tr>
     <tr><td align="right">Filled volume:</td><td>{{filledVolume.toFixed(2)}} %</td></tr>
     <tr><td align="right">Filled payload:</td><td>{{filledPayload.toFixed(2)}} %</td></tr>
-    <tr><td colspan="2"><a [routerLink] = "['/new-shipment', singleFlight?._id]">Add shipment</a> - <a [routerLink]="['/shipments', singleFlight?._id]">My shipments</a></td></tr>
+    @if(isUserLogged)
+    {
+        <tr><td colspan="2">
+            <a [routerLink] = "['/new-shipment', singleFlight?._id]">Add shipment</a> | <a [routerLink]="['/shipments', singleFlight?._id]">My shipments</a>
+            @if(isUserAdmin)
+            {
+               | <a [routerLink]="['/flights/update', singleFlight?._id]">Edit</a>
+            }
+        </td></tr>
+    }
 </table>
 </div>

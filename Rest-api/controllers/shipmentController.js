@@ -42,8 +42,8 @@ function updateShipment(req, res, next)
     const price = weight * 3;
     Promise.all([
         shipmentModel.findOneAndUpdate({_id:shipmentId},{width, height, edge, weight, price, userId, flightId}),
-        flightModel.updateOne({ _id: flightId }, { $push: { shipments: shipmentId} }),
-        flightModel.updateOne({ _id: previousFlightId }, { $pull: { shipments: shipmentId} })
+        flightModel.findOneAndUpdate({ _id: flightId }, { $push: { shipments: shipmentId} }),
+        flightModel.findOneAndUpdate({ _id: previousFlightId }, { $pull: { shipments: shipmentId} })
     ])
     .then(([updatedShipment, changedFlight, _])=>{
         if(updatedShipment)
