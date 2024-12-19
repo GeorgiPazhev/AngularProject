@@ -10,7 +10,13 @@
     <tr><td>Volume:</td><td>{{currentAircraft?.volume}} m<sup>3</sup></td></tr>
     @if(isUserAdmin)
     {
-        <tr><td colspan="2"><a [routerLink]="['/planes/update', currentAircraft?._id]">Edit</a> | <a (click)="deleteAircraft(currentAircraft?._id!)">Retire</a></td></tr>
+        <tr><td>Retired:</td><td>{{(currentAircraft?.retired) ? "Yes" : "No"}}</td></tr>
+        <tr><td colspan="2"><a [routerLink]="['/planes/update', currentAircraft?._id]">Edit</a> 
+        @if(!currentAircraft?.retired)
+        {
+            | <a (click)="deleteAircraft(currentAircraft?._id!)">Retire</a> 
+        }   
+        </td></tr>
     }
 </table></div>
 </div>

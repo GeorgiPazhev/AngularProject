@@ -4,7 +4,7 @@ export interface Address
     country:string;
     province:string;
     settlement:string;
-    name:string;
+    street:string;
     lat:string;
     lng:string;
 }

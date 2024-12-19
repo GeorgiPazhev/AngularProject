@@ -8,7 +8,8 @@ const addressSchema = new mongoose.Schema(
         required:true
     },
     province:
-    {type: String,
+    {
+     type: String,
      required:true
     },
     settlement:
@@ -16,10 +17,9 @@ const addressSchema = new mongoose.Schema(
         type: String,
         required:true
     },
-    name:
+    street:
     {
-        type: String,
-        required:true
+        type: String,   
     },
     lat:
     {

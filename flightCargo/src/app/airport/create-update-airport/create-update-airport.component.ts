@@ -17,7 +17,7 @@ export class CreateUpdateAirportComponent implements OnInit {
           country: new FormControl('', [Validators.required,]),
           province: new FormControl('', [Validators.required, ]),
           settlement: new FormControl('', [Validators.required,  ]),
-          street: new FormControl('', [Validators.required,  ]),
+          street: new FormControl('', []),
           lat: new FormControl('', [Validators.required, numberValidator() ]),
           lng: new FormControl('', [Validators.required, numberValidator() ]),
         });
@@ -31,15 +31,18 @@ export class CreateUpdateAirportComponent implements OnInit {
       this.airportId = this.activatedRoute.snapshot.params['id'];
       if (this.airportId != null)
       {
+        console.log(this.airportId);
         this.airportService.getSingleAirport(this.airportId).subscribe((airport)=> {
-          const airportName = airport.name;
-          const airportCountry = airport.address.country;
-          const airportProvince = airport.address.province;
-          const airportSettlement = airport.address.settlement;
-          const airportStreet = airport.address.name;
-          const airportLatitude = airport.address.lat;
-          const airportLongitude = airport.address.lng;
+          console.log(airport);
+          const airportName = airport.name != null ? airport.name : "";
+          const airportCountry = airport.address.country != null ? airport.address.country : "";
+          const airportProvince = airport.address.province != null ? airport.address.province : "";
+          const airportSettlement = airport.address.settlement != null ? airport.address.settlement : "";
+          const airportStreet = airport.address.street != null ? airport.address.street : "";
+          const airportLatitude = airport.address.lat != null ? airport.address.lat : "";
+          const airportLongitude = airport.address.lng != null ? airport.address.lng : "";
           this.addressId = airport.address._id;
+          console.log("Addressid:", this.addressId);
           this.form.setValue({name:airportName, country:airportCountry, province:airportProvince, settlement:airportSettlement, street:airportStreet, lat:airportLatitude, lng:airportLongitude});
         });
       }

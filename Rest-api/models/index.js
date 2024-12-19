@@ -8,6 +8,7 @@ const airportModel = require('./airportModel');
 const shipmentModel = require('./shipmentModel');
 const currencyModel = require('./currencyModel');
 const newsrecordModel = require('./newsrecordModel');
+const addressModel = require('./addressModel');
 
 module.exports = {
     userModel,
@@ -17,6 +18,7 @@ module.exports = {
     aircraftModel,
     flightModel,
     airportModel,
+    addressModel,
     shipmentModel,
     currencyModel,
     newsrecordModel,

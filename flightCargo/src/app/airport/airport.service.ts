@@ -23,10 +23,11 @@ export class AirportService {
   {
     if (id != null)
     {
-      this.httpClient.put(`/api/airports/${id}`, {name, country, settlement, street, lat, lng, addressId});
+      console.log("Service: AddressId: ", addressId);
+      return this.httpClient.put(`/api/airports/${id}`, {name, country, province, settlement, street, lat, lng, addressId});
     }
     
-    return this.httpClient.post("/api/airports",{name, country, settlement, street, lat, lng});
+    return this.httpClient.post("/api/airports",{name, country, province, settlement, street, lat, lng});
 
   }
 }

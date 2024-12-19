@@ -5,10 +5,12 @@
             <li> Country: {{item.address.country}}</li>
             <li> Province: {{item.address.province}}</li>
             <li> Settlement: {{item.address.settlement}}</li> 
-            <li> Street: {{item.address.name}}</li>
+            <li> Street: {{item.address.street}}</li>
+            <li> Lattitude: {{item.address.lat}}</li>
+            <li> Longitude: {{item.address.lng}}</li>
         </ul>
     <p></p>
     <p align="center">
-        <a [routerLink]="['airports/update', item._id]">Edit</a>
+        <a [routerLink]="['/airports/update', item._id]">Edit</a>
     </p>
 }
