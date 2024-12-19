@@ -1,4 +1,63 @@
 <div class="new-record-container">
+    
+    @if(form.get('name')?.touched)
+    {
+        @if(form.get('name')?.errors?.['required'])
+        {
+            <div style="color:red"> The Airport Name is required!</div>
+        }
+    }
+
+    @if(form.get('country')?.touched)
+    {
+        @if(form.get('country')?.errors?.['required'])
+        {
+            <div style="color:red"> The Country is required!</div>
+        }
+    }
+
+    @if(form.get('province')?.touched)
+    {
+        @if(form.get('province')?.errors?.['required'])
+        {
+            <div style="color:red"> The Province is required!</div>
+        }
+    }
+
+    @if(form.get('settlement')?.touched)
+    {
+        @if(form.get('settlement')?.errors?.['required'])
+        {
+            <div style="color:red"> The Settlement is required!</div>
+        }
+    }
+
+    @if(form.get('lat')?.touched)
+    {
+        @if(form.get('lat')?.errors?.['required'])
+        {
+            <div style="color:red"> The lattitude is required!</div>
+        }
+
+        @if(form.get('lat')?.errors?.['numberValidator'])
+        {
+            <div style="color:red"> The lattitude should be decimal number!</div>
+        }
+    }
+
+    @if(form.get('lng')?.touched)
+    {
+        @if(form.get('lng')?.errors?.['required'])
+        {
+            <div style="color:red"> The longnitude is required!</div>
+        }
+
+        @if(form.get('lng')?.errors?.['numberValidator'])
+        {
+            <div style="color:red"> The longnitude should be decimal number!</div>
+        }
+    }
+
     <form [formGroup]="form" (ngSubmit)="createOrUpdateAirport()">
         
         <label for="name">Airport name: </label>
@@ -15,6 +74,6 @@
         <input type="text" id="lat" name="lat" formControlName="lat">
         <label for="lng">Longtitude: </label>
         <input type="text" id="lng" name="lng" formControlName="lng">
-        <button type="submit">Submit airport</button>
+        <button type="submit" [disabled]="form.invalid">Submit airport</button>
     </form>
     </div>

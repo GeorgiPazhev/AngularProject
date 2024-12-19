@@ -80,7 +80,7 @@
       <input type="datetime-local" id="departureDate" name="departureDate" formControlName="departureDate"><br><br>
       <label for="arrivalDate" align="right">Arrival date:</label>
       <input type="datetime-local" id="arrivalDate" name="arrivalDate" formControlName="arrivalDate"><br><br>
-      <button>Create new flight</button>
+      <button [disabled]="form.invalid">Create new flight</button>
     </fieldset>
     </form>
     </div>

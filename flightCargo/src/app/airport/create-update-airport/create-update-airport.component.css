@@ -49,3 +49,9 @@ span.psw {
      width: 100%;
   }
 }
+
+button:disabled
+ {
+    background-color: gray;
+    color:black ;
+ }

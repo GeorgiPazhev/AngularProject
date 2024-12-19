@@ -1,4 +1,53 @@
 <div class="new-record-container">
+    @if(form.get('pictureUrl')?.touched)
+    {
+        @if(form.get('pictureUrl')?.errors?.['required'])
+        {
+            <div style="color:red"> The Picture URL is required!</div>
+        }
+    }
+
+    @if(form.get('mark')?.touched)
+    {
+        @if(form.get('mark')?.errors?.['required'])
+        {
+            <div style="color:red"> The Mark is required!</div>
+        }
+    }
+
+    @if(form.get('model')?.touched)
+    {
+        @if(form.get('model')?.errors?.['required'])
+        {
+            <div style="color:red"> The Model is required!</div>
+        }
+    }
+
+    @if(form.get('payload')?.touched)
+    {
+        @if(form.get('payload')?.errors?.['required'])
+        {
+            <div style="color:red"> The payload is required!</div>
+        }
+
+        @if(form.get('payload')?.errors?.['numberValidator'])
+        {
+            <div style="color:red"> The payload should be decimal number!</div>
+        }
+    }
+
+    @if(form.get('volume')?.touched)
+    {
+        @if(form.get('volume')?.errors?.['required'])
+        {
+            <div style="color:red"> The volume is required!</div>
+        }
+
+        @if(form.get('volume')?.errors?.['numberValidator'])
+        {
+            <div style="color:red"> The volume should be decimal number!</div>
+        }
+    }
     <form [formGroup]="form" (ngSubmit)="createOrUpdateAircraft()">
         
         <label for="pictureUrl">Picture URL: </label>
@@ -11,6 +60,6 @@
         <input type="text" id="payload" name="payload" formControlName="payload">
         <label for="volume">Volume: </label>
         <input type="text" id="volume" name="volume" formControlName="volume">
-        <button type="submit">Submit aircraft</button>
+        <button type="submit" [disabled]="form.invalid">Submit aircraft</button>
     </form>
     </div>
