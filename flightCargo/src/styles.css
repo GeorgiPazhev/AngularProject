@@ -55,6 +55,7 @@ body {
     color: inherit;
     font-weight: bold;
     text-decoration: underline;
+    cursor: pointer;
     }
 
 /**************** images styles ****************/		
