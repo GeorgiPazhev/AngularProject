@@ -77,11 +77,11 @@ export class UserService {
 
   listProfiles()
   {
-    return this.client.get<UserForAuth[]>("/api/profiles");
+    return this.client.get<UserForAuth[]>("/api/users/profiles");
   }
 
   addOrRemoveUserAdminPrivileges(id:string, removeAdmin:boolean)
   {
-    return (removeAdmin) ? this.client.put(`/api/profiles/remove-admin/${id}`, {}) : this.client.put(`/api/profiles/create-admin/${id}`, {});
+    return (removeAdmin) ? this.client.put(`/api/users/profile/remove-admin/${id}`, {}) : this.client.put(`/api/users/profile/create-admin/${id}`, {});
   }
 }
