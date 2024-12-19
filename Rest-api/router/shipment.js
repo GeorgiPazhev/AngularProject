@@ -5,7 +5,7 @@ const { shipmentController } = require('../controllers');
 
 // middleware that is specific to this router
 
-router.get('/', auth(), shipmentController.getAllShipments);
+router.get('/:flight/all', auth(), shipmentController.getAllShipmentsByFlight);
 router.get('/:flight', auth(), shipmentController.getAllShipmentsByUserAndFlight);
 router.post('/', auth(), shipmentController.createNewShipment);
 router.put('/:shipmentId', auth(), shipmentController.updateShipment);

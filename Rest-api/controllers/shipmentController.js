@@ -1,9 +1,9 @@
 const { ObjectId } = require('mongoose');
 const { shipmentModel, flightModel } = require('../models');
 
-function getAllShipments(req, res, next) {
-    
-    shipmentModel.find()
+function getAllShipmentsByFlight(req, res, next) {
+    const {flight} = req.params;
+    shipmentModel.find({flightId:flight})
         .populate('userId')
         .populate('currency')
         .then(shipments => {
@@ -81,7 +81,7 @@ function removeShipment(req, res, next)
 }
 
 module.exports = {
-    getAllShipments,
+    getAllShipmentsByFlight,
     getAllShipmentsByUserAndFlight,
     createNewShipment,
     updateShipment,

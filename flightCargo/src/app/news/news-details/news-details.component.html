@@ -3,7 +3,7 @@
 {
     <p align="center"> <a [routerLink] = "['/news/update', newsRecord?._id]">Edit</a></p>
 }
-
+<p><b>Created at: {{newsRecord?.createdAt|date: "YYYY-MM-dd HH:mm:ss" : 'GMT'}} | Updated at: {{newsRecord?.updatedAt|date: "YYYY-MM-dd HH:mm:ss" : 'GMT'}}</b></p>
 <div id="news-details-content">
 <p>{{newsRecord?.content}}</p>
 </div>

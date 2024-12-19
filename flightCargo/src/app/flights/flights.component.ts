@@ -3,6 +3,7 @@ import { Flight } from '../../types/Flight';
 import { FlightsService } from './flights.service';
 import { Observable } from 'rxjs';
 import { FlightComponent } from "./flight/flight.component";
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-flights',
@@ -15,11 +16,18 @@ export class FlightsComponent implements OnInit {
 
     flights:Flight[]|null = null;
     
-    constructor(private flightService:FlightsService){}
+    constructor(private flightService:FlightsService, private userService:UserService){}
 
   ngOnInit(): void 
   {
-    this.flightService.getFlights().subscribe((flightList)=> {this.flights = flightList;});    
+    if (this.userService.isUserAdmin)
+    {
+       this.flightService.getAllFlights().subscribe((flightList)=> {this.flights = flightList;});
+    }
+    else
+    {
+        this.flightService.getFlights().subscribe((flightList)=> {this.flights = flightList;}); 
+    }   
   }
 
 }

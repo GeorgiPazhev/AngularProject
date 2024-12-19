@@ -8,8 +8,8 @@ export interface NewsRecord
     content: string;
     likes: string[];
     comments: Comment[];
-    created: Date;
-    updated: Date;
+    createdAt: Date;
+    updatedAt: Date;
 }
 
 export interface NewsRecordForUpdate

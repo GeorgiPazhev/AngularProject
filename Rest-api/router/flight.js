@@ -6,6 +6,7 @@ const { flightController } = require('../controllers');
 // middleware that is specific to this router
 
 router.get('/', flightController.getFlights);
+router.get('/all',auth(), flightController.getAllFlights);
 router.get('/:id', auth(), flightController.getFlight);
 router.post("/", auth(), flightController.createNewFlight);
 router.put("/:id", auth(), flightController.updateFlight);

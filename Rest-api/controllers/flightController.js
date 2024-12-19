@@ -2,22 +2,8 @@ const { flightModel } = require('../models');
 
 function getFlights(req, res, next) {
     
-    const showAll = Boolean(req.query.showAll) || false;
-    if (showAll)
-    {
-        flightModel.find()
-        .populate('aircraft')
-        .populate('shipments')
-        .populate('departureAirport')
-        .populate('arrivalAirport')
-        .then(flights => {
-            res.status(200).json(flights)
-        })
-        .catch(next);
-    }
-    else
-    {
-        flightModel.find({ departureDate: { $gte: new Date() } })
+    flightModel.find({ departureDate: { $gte: new Date() } })
+            .sort({ departureDate: 'desc' })
             .populate('aircraft')
             .populate('shipments')
             .populate('departureAirport')
@@ -26,7 +12,20 @@ function getFlights(req, res, next) {
                 res.status(200).json(flights)
             })
             .catch(next);
-    }
+}
+
+function getAllFlights(req, res, next)
+{
+    flightModel.find()
+        .sort({ departureDate: 'desc' })
+        .populate('aircraft')
+        .populate('shipments')
+        .populate('departureAirport')
+        .populate('arrivalAirport')
+        .then(flights => {
+            res.status(200).json(flights)
+        })
+        .catch(next);
 }
 
 function getFlight(req, res, next) {
@@ -69,6 +68,7 @@ function createNewFlight(req, res, next) {
 }
 
 module.exports = {
+    getAllFlights,
     getFlights,
     getFlight,
     createNewFlight,

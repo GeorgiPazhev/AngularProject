@@ -3,11 +3,12 @@ import { NewsService } from '../news.service';
 import { NewsRecord } from '../../../types/NewsRecord';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { UserService } from '../../user/user.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-news-details',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, DatePipe],
   templateUrl: './news-details.component.html',
   styleUrl: './news-details.component.css'
 })

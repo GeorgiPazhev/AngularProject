@@ -12,9 +12,13 @@ export class ShipmentService {
 
    }
 
+   getAllShipments(flightId:string)
+   {
+    return this.httpClient.get<Shipment[]>(`/api/shipments/${flightId}/all`);
+   }
+   
    getShipments(flightId:string)
    {
-    const userId = this.userService.getUserId();  
     return this.httpClient.get<Shipment[]>(`/api/shipments/${flightId}`);
    }
 

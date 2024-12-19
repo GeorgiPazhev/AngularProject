@@ -11,7 +11,7 @@
     @if(isUserLogged)
     {
         <tr><td colspan="2">
-            <a [routerLink] = "['/new-shipment', singleFlight?._id]">Add shipment</a> | <a [routerLink]="['/shipments', singleFlight?._id]">My shipments</a>
+            <a [routerLink] = "['/new-shipment', singleFlight?._id]">Add shipment</a> | <a [routerLink]="['/shipments', singleFlight?._id]">Shipments</a>
             @if(isUserAdmin)
             {
                | <a [routerLink]="['/flights/update', singleFlight?._id]">Edit</a>
